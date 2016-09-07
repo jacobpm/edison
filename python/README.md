@@ -2,116 +2,181 @@
 
 ## Introduction
 
-This document will guide you through all the necessary steps required to use Intel Edison as a sensor node within the [Dell Starter Kit](). The Edison board configuration and code examples provided here are Python specific, if you wish to use Arduino IDE follow [this documentation](https://github.com/relayr/edison/tree/master/Arduino).
+This document details all the necessary steps required
+to make use of the 
+[Intel Edison](http://www.intel.com/content/www/us/en/do-it-yourself/edison.html)
+as a sensor node with
+[Dell Starter Kit](http://www.iot-starterkit.de/). This document
+refers **only** to using **Python** on the Edison. See
+[here](https://github.com/relayr/edison/tree/master/Arduino) for
+using Arduino instead.
 
 ## Requirements
 
-You'll need the following components of the Dell Starter kit:
+The following software is required:
 
-* [Dell gateway]()
-* [Intel Edison Arduino breakout kit]()
-* [Seeedstudio base shield]()
-* [Seedstuido sensor kit]()
+ * [Dell gateway]()
+ * [Intel Edison Arduino breakout kit]()
+ * [Seeedstudio base shield]()
+ * [Seedstuido sensor kit]()
 
-Additionally, you'll need a laptop to connect and configure Intel Edison and the Dell gateway.
+A computer is required to connect the Edison board to for
+flashing and configuring.
 
 ## Installation & configuration
 
 ### Setting up the hardware
 
-To assemble the Arduino Expansion Board found in the Dell Starter Kit please follow the official [Intel Edison guide](https://software.intel.com/en-us/node/628221).
+Assemble the Arduino Expansion Board found in the Dell Starter Kit
+following
+[Intel Edison guide](https://software.intel.com/en-us/node/628221).
 
 ### Setting up the firmware
 
-To run python scripts on Intel Edison board you'll first have to install an operating system. The easies way is to run [Intel® Edison Board Configuration Tool](https://software.intel.com/en-us/get-started-edison-osx-step2) and install the default firmware, which is a Linux version built using the [Yocto Project](https://www.yoctoproject.org/). The setup wizard will guide you through flashing of the firmware, SSH configuration and WiFi configuration. When your Intel Edison board is ready and connected to the internet you'll see a green checkmark icon next to each of the setup options of the Intel Edison Board Configuration wizard.
+To flash the operating system onto the board use the
+[Intel® Edison Board Configuration Tool](https://software.intel.com/en-us/get-started-edison-osx-step2)
+[where are the instructions for Linux/Windoze?]. The official
+operating system is provided by the
+[Yocto Project](https://www.yoctoproject.org/), which is a Linux
+flavour geared towards embedded systems.
+
+The setup wizard will guide you through flashing of the firmware, SSH
+and WiFi configuration. When configured a green checkmark is shown
+next to each of the setup options on the configuration wizard.
 
 ![IP Address](board-configuration-tool.png)
 
 
 ### Connecting your personal computer with the Intel Edison
 
-To connect your laptop with the Intel Edison open your command-line interface and use the SSH protocol:
+To connect the board to your computer we'll need to use SSH in
+order to login into it:
 
 ```shell
 ssh root@<edison's-IP-address>
 ```
 
-You can find the Edison's IP address in the WiFi section of the *Intel Edison Board Configuration Tool*. To find your IP address without using the Intel configuration tool you can:
+The Edison's IP address is found in the WiFi section of the **Intel
+Edison Board Configuration Tool**. 
 
-1. Log in your router and find the IP address assigned to the Edison board.
-2. Setup mDNS on your Intel Edison.
-3. Setup a static IP.
-4. Scan your network with utility such as [`nmap`](https://nmap.org/).
+Alternatively we can find the IP address of the board **without** the
+Intel configuration wizard by using any of the following methods:
 
-When connecting via SSH and being prompt for a password use the one you've set in the security settings of the Intel Edison Board Configuration Tool and press enter. If everything worked well you'll be logged in your Edison board as a root user with access to all the files and Linux commands.
+ 1. Log in your router/access point and find the IP address assigned to the Edison board.
+ 2. Setup [mDNS](http://www.multicastdns.org/) on your Intel Edison.
+ 3. Setup the board using a **static** IP.
+ 4. Find the IP address of the board using a scanner like [`nmap`](https://nmap.org/).
 
-### Setting up the `limraa` library
+When connecting via SSH and being prompted for a password 
+use the one that was set in the security settings of the Intel Edison Board
+Configuration Tool. If everything worked properly we should now be
+logged in as **root** on the board.
 
-Once you are connected to Intel Edison and able to interact with its Linux shell we can move on and install all the libraries and Python packages that you'll need. The default firmware (Linux Yocto image) comes with Python 2.7 already installed so you can start running scripts right away. However, if you wish to interact with the GPIOs of the Intel Edison breakout board you'll have to install [`libmraa`](https://github.com/intel-iot-devkit/mraa) C/C++ library which provides bindings for Java, JavaScript and Python. As noted in the linked github repository, you can install it by using [OPKG package manager](https://wiki.openwrt.org/doc/techref/opkg) by executing the following three commands:
+### Setting up the `libmraa` library
+
+Once you are connected to Intel Edison and able to interact with its
+Linux shell we can move on and install all the libraries and Python
+packages that you'll need. The default firmware (Linux Yocto image)
+comes with Python 2.7 already installed so you can start running
+scripts right away. However, if you wish to interact with the GPIOs of
+the Intel Edison breakout board you'll have to install
+the [`libmraa`](https://github.com/intel-iot-devkit/mraa) C/C++ library
+which provides bindings for Java, JavaScript and Python. As noted in
+the linked github repository, you can install it by using the 
+[OPKG package manager](https://wiki.openwrt.org/doc/techref/opkg) by
+executing the following three commands:
 
 ```shell
-echo "src mraa-upm http://iotdk.intel.com/repos/3.5/intelgalactic/opkg/i586" > /etc/opkg/mraa-upm.conf
+echo 'src mraa-upm http://iotdk.intel.com/repos/3.5/intelgalactic/opkg/i586' > /etc/opkg/mraa-upm.conf
 opkg update
 opkg install mraa
 ```
-The first line adds the source of the `libmraa` repository to the package manager, the second one updates the existing OPKG packages and the last one installs the `libmraa` package.
+
+The first line adds the source of the `libmraa` repository to the
+package manager source list, the second one updates the existing
+[opkg](https://en.wikipedia.org/wiki/Opkg) packages and the last one
+installs the `libmraa` package.
 
 ### Python Dependencies
 
-The next step is to install the python dependencies you'll need to send messages of the sensor readings to the [Dell gateway](). When dealing with Python dependencies and versions a good practice is to create an isolated Python environment for each application you are running. If you wish to follow good practices and install the needed dependencies in an virtual Python environment follow the next subsection which will help you setup the `virtualenv`, otherwise skip to the *Paho MQTT* subsection.
+The next step is to install the python dependencies. We need to
+send messages with the sensor readings to the [Dell gateway](). 
+
+When dealing with Python dependencies and versions is a good practice
+to create an isolated Python environment for each application we are
+running. 
 
 #### Virtualenv
 
-Virtualenv is a tool for creating and managing isolated Python environments. You can install it with `pip` Python package manager using the following command:
+`virtualenv` is a tool for creating and managing isolated Python
+environments. It's installed using the `pip` Python package
+manager.
 
 ```shell
 pip install virtualenv
 ```
-After having `virtualenv` installed you can move (`cd`) in any project folder and create a new virtual Python environment: 
+Once installed we can now create an isolated environment wherever we
+want:
 
 ```shell
-virtualenv --system-site-packages ENV
+virtualenv --system-site-packages <ENV>
 ```
 
-where `ENV` is the name of the directory to place the new virtual environment in. The `--system-site-packages` flag is used to inherit packages in global site-packages directory (in our case the `libmraa` python bindings package).
+where `<ENV>` is the name of the directory where the new virtual
+environment exists. The `--system-site-packages` switch is for
+inheriting from all the packages in global site-packages directory (in
+this case the `libmraa` package).
 
-To activate an environment use:
+To activate the environment we issue:
 
 ```shell
 source bin/activate
 ```
 
-You will notice the `(ENV)` prefix appearing in your command-line interface which indicates that you are in a isolated Python environment called `ENV`. 
+You will notice the `(<ENV>)` prefix appearing in your command-line
+interface which indicates that you are in a isolated Python
+environment called `<ENV>`.
 
-Now you can use `pip` package manager and Python interpreter just as you would normally, however, when you install any Python package it will be installed only for the virtual environment and you wont pollute the global python environment.
+Now we can use `pip` package manager and Python interpreter just as we
+would normally do, however, when installing any additional Python
+package, it will be installed **only** in the virtual environment
 
-To deactivate the virtual environment and return into global one write:
+To deactivate the virtual environment, do:
 
-```shell
-deactivate
-```
-If you run into any questions when using `virtualenv` consult the [official documentation](https://virtualenv.pypa.io/en/stable/).
+```shell deactivate ``` If you run into any questions when using
+`virtualenv` consult the
+[official documentation](https://virtualenv.pypa.io/en/stable/).
 
 
-#### MQTT Paho
+####Paho MQTT
 
-To run the Python examples provided in this repository you'll have to install [`paho-mqtt`](https://pypi.python.org/pypi/paho-mqtt/1.1) package which provides a MQTT client library enabling the sending of messages to a MQTT broker. MQTT is a lightweight messaging protocol developed specifically for constrained devices. We are using it because of it's simplicity and low overhead. If you wish to learn more about the MQTT protocol you can start at the [MQTT wikipedia entry](https://en.wikipedia.org/wiki/MQTT).
+To run the Python examples provided in this repository we need to
+install [`paho-mqtt`](https://pypi.python.org/pypi/paho-mqtt/1.1)
+package which provides a MQTT client library, enabling the
+sending/receiving of messages to/from a MQTT
+broker. [MQTT](https://en.wikipedia.org/wiki/MQTT) is a lightweight
+messaging protocol built on top of TCP/IP. We chose it because of
+its simplicity and low overhead.
 
-To install `paho-mqtt` package use the `pip` Python package manager:
+To install `paho-mqtt`  with `pip`, do:
 
 ```shell
 pip install paho-mqtt
 ```
 
-When done you can use the `paho-mqtt` classes by importing the module in your Python script:
+Once installed we can now use `paho-mqtt` classes by importing the
+module into our script:
 
 ```python
 import paho-mqtt
 ```
 
-If you wish to learn more about the functionalities that the `paho-mqtt` Python client offers check out the [official documentation](https://pypi.python.org/pypi/paho-mqtt/1.1).
+To learn more about the functionalities that the
+`paho-mqtt` Python client see the 
+[official documentation](https://pypi.python.org/pypi/paho-mqtt/1.1).
 
-After finishing all installation and configuration steps you are ready to start running the code examples below.
+After finishing all installation and configuration steps we're now 
+ready to make use of MQTT and run the code examples below.
 
 ## Code Examples
 
