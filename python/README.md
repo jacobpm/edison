@@ -13,7 +13,7 @@ using Arduino instead.
 
 ## Requirements
 
-The following software is required:
+The following hardware is required:
 
  * [Dell gateway]()
  * [Intel Edison Arduino breakout kit]()
