@@ -25,6 +25,7 @@
 *.log
 *.sql
 *.sqlite
+*.iml
 
 # OS generated files #
 ######################
@@ -40,3 +41,4 @@ Thumbs.db
 ####################################
 ./arduino/temp
 README.md
+.idea/
