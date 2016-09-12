@@ -3,8 +3,7 @@
 ## Introduction
 
 This document details all the necessary steps required to make use of the
-[Intel® Edison](http://www.intel.com/content/www/us/en/do-it-
-yourself/edison.html) as a sensor node with the [IoT Acceleration Starter
+[Intel® Edison](http://www.intel.com/content/www/us/en/do-it-yourself/edison.html) as a sensor node with the [IoT Acceleration Starter
 Kit](http://www.iot-starterkit.de/). 
 
 This document refers **only** to using **Arduino** on the Edison. For
@@ -27,8 +26,7 @@ A computer is required to connect the Edison board for flashing and configuratio
 ### Setting Up the Hardware
 
 Assemble the Arduino Expansion Board found in your Dell Starter Kit according
-to the directions in the [Intel® Edison guide](https://software.intel.com/en-
-us/node/628221).
+to the directions in the [Intel® Edison guide](https://software.intel.com/en-us/node/628221).
 
 Before continuing, make sure that your board looks like this:
 
@@ -84,8 +82,7 @@ useful to you in that they provide remote access to your Edison board.
 Simply follow the instructions provided by the tool and you'll be ready to go.
 Once this process is complete, the board can be accessed remotely (e.g. through the
 CLI). Although this is not required to work with Arduino sketches, see [this
-step](https://github.com/relayr/edison/tree/master/python#connecting-your-
-personal-computer-with-the-intel-edison) of the Python tutorial, which
+step](https://github.com/relayr/edison/tree/master/python#connecting-your-personal-computer-with-the-intel-edison) of the Python tutorial, which
 describes the procedure.
 
 ### Install and Configure the Arduino IDE
