@@ -44,7 +44,7 @@ The setup wizard will guide you through the firmware flashing process, SSH
 configuration and WiFi configuration. When a step is completed, a green
 checkmark is shown next to each of the setup options in the wizard.
 
-![IP Address](board-configuration-tool.png)
+![IP Address](./assets/board-configuration-tool.png)
 
 
 ### Connecting your personal computer with the Intel Edison

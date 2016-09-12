@@ -30,7 +30,7 @@ to the directions in the [Intel® Edison guide](https://software.intel.com/en-us
 
 Before continuing, make sure that your board looks like this:
 
-![](https://software.intel.com/sites/default/files/did_feeds_images/ede08869-dd67-4ac5-a530-3078328837d4/ede08869-dd67-4ac5-a530-3078328837d4-imageId=850cc2a6-6c4d-4181-bd77-098bb6ec97f8.jpg)
+![](./assets/edison_arduino_assembled_board.jpg)
 
 ### Setting Up the Firmware 
 
@@ -61,7 +61,7 @@ system:
 
 Once the tool is installed, connect the board to your computer as shown below:
 	
-![](https://software.intel.com/sites/default/files/did_feeds_images/ede08869-dd67-4ac5-a530-3078328837d4/ede08869-dd67-4ac5-a530-3078328837d4-imageId=af5fd740-016c-4634-b944-4226600c31b8.jpg)
+![](./assets/edison_arduino_connection_usb.jpg)
 
 Now open the Intel® Edison Board Configuration Tool. The tool interface should
 indicate that the firmware version installed corresponds to the 146, like
