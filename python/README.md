@@ -206,7 +206,7 @@ The script prints the `libmraa` version and toggles the GPIO 13 output every 0.5
 python path/to/blink.py
 ```
 
-If the `libmraa` version was printed in your terminal and the LED on the board started blinking then you can move on to the next example in which we will connect a motion sensor to the Edison board. In the code example failed to execute without errors then the problem is most likely related to `libmraa` library. Make sure you've installed it and consult the official [documentation](https://github.com/intel-iot-devkit/mraa) for troubleshooting.
+If the `libmraa` version was printed in your terminal and the LED on the board started blinking then you can move on to the next example in which we will connect a motion sensor to the Edison board. If the code example failed to execute without errors then the problem is most likely related to `libmraa` library. Make sure you've installed it and consult the official [documentation](https://github.com/intel-iot-devkit/mraa) for troubleshooting.
 
 ### Example 2 (motion.py)
 

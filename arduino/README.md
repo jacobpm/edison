@@ -102,27 +102,59 @@ type "Edison." Only one result should display, including the family of Intel®
 i686 boards. Select it, and click on "Install." The boards manager will now
 download and install the new package.
 
-To make sure that everything works as expected, you may connect the board to
-your computer using both USB ports and try to run the "blink" example. [Click
-here for a tutorial on this
-procedure](https://www.arduino.cc/en/Guide/IntelEdison#toc3).
-
 Now you are ready to run the code examples below!
 
 ## Code Examples
 
 Aside from this tutorial, in this repository you may also find the following code examples that will help you getting started with the different sensors included in the kit. These codes are heavily commented so they can be the base of more complex applications.
 
-### Example 1 (Blink)
+### Example 1 (blink.ino)
+
+**NOTE:** This example is standard for Arduino-based devices, and included on the Arduino IDE by default. Thus, it's not included on this repository.
+
+The `blink.ino` example is a *Hello world* code to make sure that everything works as expected, and we're able to flash sketches on our Edison. You may connect the board to your computer using both USB ports and try to run the "blink" example. [Click here for a tutorial on this procedure](https://www.arduino.cc/en/Guide/IntelEdison#toc3).
+
+The script toggles the GPIO 13 output every second. When the sketch is running you'll notice a blinking LED on the Arduino breakout kit connected to the GPIO 13.
+
+If everything works well we can move on to the next example in which we will connect a motion sensor to the Edison board. In the code example failed to execute without errors then the problem is most likely related to libmraa library. Make sure you've installed it and consult the official documentation for troubleshooting.
+
+### Example 2 (motion.ino)
 
 intro, what, how, congrats
 
-### Example 2 (PIR Sensor)
+### Example 3 (buzzer.ino)
 
 intro, what, how, congrats
 
-### Example 3 (Buzzer)
-
-intro, what, how, congrats
+### Example 4 (multi_sensor.ino)
 
 ## References
+
+## To Do
+Add 3rd party licenses of the libraries used for the MQTT communication!
+
+## License
+
+ Copyright (C) 2016 relayr GmbH, Jaime González-Arintero <jaime@relayr.io>
+
+ Permission is hereby granted, free of charge, to any person obtaining a 
+ copy of this software and associated documentation files (the "Software"), 
+ to deal in the Software without restriction, including without limitation 
+ the rights to use, copy, modify, merge, publish, distribute, sublicense, 
+ and/or sell copies of the Software, and to permit persons to whom the 
+ Software is furnished to do so, subject to the following conditions: 
+
+ The above copyright notice and this permission notice shall be included in 
+ all copies or substantial portions of the Software. 
+
+ Except as contained in this notice, the name(s) of the above copyright 
+ holders shall not be used in advertising or otherwise to promote the sale, 
+ use or other dealings in this Software without prior written authorization. 
+
+ THE SOFTWARE IS PROVIDED "AS IS," WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL 
+ THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
+ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
+ DEALINGS IN THE SOFTWARE. 
