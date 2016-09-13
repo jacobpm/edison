@@ -15,9 +15,9 @@ instructions](https://github.com/relayr/edison/tree/master/python).
 The following hardware is required:
 
  * [Dell Edge Gateway 5100]()
- * [Intel® Edison Arduino breakout kit]()
+ * [Intel® Edison Arduino Breakout Kit]()
  * [Seedstudio Grove Base Shield v2](http://wiki.seeedstudio.com/wiki/Grove_-_Base_shield_v2)
- * [Seedstudio sensor kit]()
+ * [Seedstudio Sensor Kit]()
 
 A computer is required to connect the Edison board for flashing and configuration.
 
