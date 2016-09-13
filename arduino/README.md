@@ -116,7 +116,7 @@ The `blink.ino` example is a *Hello world* code to make sure that everything wor
 
 The script toggles the GPIO 13 output every second. When the sketch is running you'll notice a blinking LED on the Arduino breakout kit connected to the GPIO 13.
 
-If everything works well we can move on to the next example in which we will connect a motion sensor to the Edison board. In the code example failed to execute without errors then the problem is most likely related to libmraa library. Make sure you've installed it and consult the official documentation for troubleshooting.
+If everything works well we can move on to the next example in which we will connect a motion sensor to the Edison board. If after a few seconds the LED is not blinking on your board, you may need to re-flash the firmware image again, as described in the [previous steps](#setting-up-the-firmware).
 
 ### Example 2 (motion.ino)
 
