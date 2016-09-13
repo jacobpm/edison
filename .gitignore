@@ -39,6 +39,10 @@ Thumbs.db
 
 # Specific files from this project #
 ####################################
+<<<<<<< HEAD
+./arduino/temp
+=======
 ./arduino/temp
 README.md
 .idea/
+>>>>>>> 64b7fe8258d59bbf1724bd87ebb99bcb587a5dea
