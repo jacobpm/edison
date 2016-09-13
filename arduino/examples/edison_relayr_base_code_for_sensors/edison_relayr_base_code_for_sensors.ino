@@ -347,7 +347,7 @@ void publish()
 //  Serial.println("Publishing " + String(message_buff));
 
   //create our json payload
-  String pubString = "{\"meaning\":\"Sound\", \"value\":";
+  String pubString = "{\"meaning\":\"soundLevel\", \"value\":";
   //read and add sensor data to payload
   pubString += analogRead(A1);
   pubString += "}";

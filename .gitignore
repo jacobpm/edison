@@ -37,7 +37,7 @@
 ehthumbs.db
 Thumbs.db
 
-# Specific files from this project #
-####################################
-./arduino/temp
+# Specific files and folders from this project #
+################################################
+arduino/temp/*
 .idea/
