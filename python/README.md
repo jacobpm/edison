@@ -33,10 +33,12 @@ according to the directions in the
 
 ### Setting up the firmware
 
-To flash the operating system onto the board, use the
-[Intel® Edison Board Configuration Tool](https://software.intel.com/en-us/get-started-edison-osx-step2)
-[where are the instructions for Linux/Windoze?]. The official
-operating system is provided by the
+To flash the latest firmware on the Edison board, use the
+*Intel® Edison Board Configuration Tool*
+([Mac OS X](https://software.intel.com/en-us/get-started-edison-osx-step2),
+[Linux](https://software.intel.com/en-us/get-started-edison-linux-step2),
+[Windows](https://software.intel.com/en-us/get-started-edison-windows-step2)).
+The official operating system is provided by the
 [Yocto Project](https://www.yoctoproject.org/), which is a Linux
 flavor geared towards embedded systems.
 
@@ -182,19 +184,68 @@ ready to make use of MQTT and run the code examples below.
 
 ## Code Examples
 
-Intro for examples clone the repository
+The following code examples will get you started with using Intel Edison board as a sensor node.
+Clone this git repository into a folder of your choice and move into the `python/examples` folder.
+
+```shell
+git clone https://github.com/relayr/edison
+cd python/examples
+```
+
+Now we can run the first example and see if you can interact with your board GPIOs through Python commands.
 
 
-### Example 1 (Blink)
+### Example 1 (blink.py)
 
-intro, what, how, congrats
+The `blink.py` example is a *Hello world* script that test if the `libmraa` library has been installed properly enabling you to interact with Intel Edison board GPIOs.
 
-### Example 2 (PIR Sensor)
+This script prints the `libmraa` version and toggles the GPIO 13 output every 0.5 seconds. You'll notice a blinking LED on the Arduino breakout kit as the GPIO 13 is connected to it. Run the Python script by executing the following command:
 
-intro, what, how, congrats
+```shell
+python path/to/blink.py
+```
 
-### Example 3 (Buzzer)
+If everything is working properly you can move on to the next example in which we will connect a motion sensor to the Edison board. If you run into problems related to `libmraa` library, consult the official [documentation](https://github.com/intel-iot-devkit/mraa).
 
-intro, what, how, congrats
+### Example 2 (motion.py)
+
+The `motion.py` example uses a PIR motion sensor which detects the movements in its proximity and outputs a digital value (*HIGH* if there is movement and *LOW* if there is no movement). The captured value is then sent to the Dell gateway and relayr Cloud.
+
+First prepare the hardware by connecting the *PIR motion sensor* to the **Digital Pin 2 (D2)**. Next you'll have to create a device on the relayr Cloud which will serve as an online representation of your physical Intel Edison board. Follow the [**Devices Guide**](http://docs.relayr.io/getting-started/devices-guide/) to create a device and get acquainted with the relayr Dashboard.
+
+Once you have a device created on the relayr Dashboard, copy its MQTT credentials in the appropriate place in the `motion.py` Python script.
+
+```python
+# MQTT credentials.
+mqtt_credentials = {
+    "user": "<your user ID>",
+    "password": "<your password>",
+    "clientId": "<your client ID>",
+    "topic": "<your MQTT topic>"
+}
+```
+
+Execute the python script with:
+
+```shell
+python path/to/motion.py
+```
+
+You should see a message when the MQTT client running on the Edison connects to the MQTT broker. If the connection is successfully established, and everything is working properly a `{'meaning': 'motion', 'value': True}` JSON message will be sent every 0.5 second. The `'value': True` will change accordingly to the motion detected by the PIR sensor. 
+
+If you run into troubles, make sure that you have all the Python dependencies installed (`libmraa` and `paho-mqtt`). Also if you are using a virtual Python environment make sure that it is activated and initiated in the folder of the local repository.
+
+
+### Example 3 (buzzer.py)
+
+The `buzzer.py` example shows you how to receive commands from the relayr Cloud and/or the Dell gateway. The command Intel Edison will receive will remotely trigger or turn off a piezzo buzzer.
+
+Prepare the hardware by connecting the [grove buzzer](http://wiki.seeedstudio.com/wiki/Grove_-_Buzzer) to the **Digital pin 5 (D5)**. You can create a new de..
+
+
+### Example 4 (multi_sensor.py)
+
+An example with motion, buzzer, luminosity and water sensor.
+
 
 # References
