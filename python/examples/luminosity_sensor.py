@@ -32,10 +32,10 @@ def on_connect(client, userdata, flags, rc):
 mqtt_server = "mqtt.relayr.io"
 # MQTT credentials.
 mqtt_credentials = {
-    "user": "ed939030-e620-4ed4-bb8d-16dc499de1ce",
-    "password": "sxb7F8P1lI_C",
-    "clientId": "T7ZOQMOYgTtS7jRbcSZ3hzg",
-    "topic": "/v1/ed939030-e620-4ed4-bb8d-16dc499de1ce/"
+    "user": "<your user ID>",
+    "password": "<your password>",
+    "clientId": "<your client ID>",
+    "topic": "<your MQTT topic>"
 }
 
 # Message publishing frequency in milliseconds.
@@ -50,7 +50,7 @@ client = paho.Client()
 client.username_pw_set(mqtt_credentials['user'], mqtt_credentials['password'])
 # Register a 'on_connect' callback.
 client.on_connect = on_connect
-# Connect to the MQTT broker.
+# Connect to the MQTT broker through port 1883 (no SSL) and timeout of  60s.
 client.connect(mqtt_server, 1883, 60)
 # Start a network loop on a separate thread.
 client.loop_start()

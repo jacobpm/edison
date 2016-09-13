@@ -41,10 +41,10 @@ def on_message(client, userdata, msg):
 mqtt_server = "mqtt.relayr.io"
 # MQTT credentials.
 mqtt_credentials = {
-    "user": "ed939030-e620-4ed4-bb8d-16dc499de1ce",
-    "password": "sxb7F8P1lI_C",
-    "clientId": "T7ZOQMOYgTtS7jRbcSZ3hzg",
-    "topic": "/v1/ed939030-e620-4ed4-bb8d-16dc499de1ce/"
+    "user": "<your user ID>",
+    "password": "<your password>",
+    "clientId": "<your client ID>",
+    "topic": "<your MQTT topic>"
 }
 
 # Instantiate a buzzer object with digital pin D5 as an output.
@@ -59,7 +59,7 @@ client.username_pw_set(mqtt_credentials['user'], mqtt_credentials['password'])
 client.on_connect = on_connect
 # Register a callback for received messages.
 client.on_message = on_message
-# Connect to the MQTT broker.
+# Connect to the MQTT broker through port 1883 (no SSL) and timeout of  60s.
 client.connect(mqtt_server, 1883, 60)
 # Start a blocking network loop.
 client.loop_forever()
