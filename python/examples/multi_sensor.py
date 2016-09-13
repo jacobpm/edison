@@ -2,7 +2,7 @@ import json
 import datetime
 import paho.mqtt.client as paho
 import pyupm_buzzer as upm_buzzer
-import pyupm_apds9002 as upm_luminance
+import pyupm_apds9002 as upm_luminosity
 import pyupm_biss0001 as upm_motion
 
 
@@ -73,7 +73,7 @@ buzzer = upm_buzzer.Buzzer(5)
 buzzer.stopSound()
 buzzer.setVolume(0.01)
 # Instantiate a luminosity sensor object with analog pin A0 as an input.
-luminosity = upm_luminance.APDS9002(0)
+luminosity = upm_luminosity.APDS9002(0)
 # Instantiate a motion sensor object with digital pin D2 as an input.
 motion = upm_motion.BISS0001(2)
 
