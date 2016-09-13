@@ -67,21 +67,22 @@ void publish();
 //Setup function
 void setup()
 {
-  system("wpa_supplicant -B -Dnl80211 -iwlan0 -c/etc/wpa_supplicant/wpa_supplicant.conf");
-  system("busybox udhcpc -i wlan0");
-
-  signal(SIGPIPE,SIG_IGN);
-  
   //Initializing pins
   pinMode(A0, INPUT);
   pinMode(led, OUTPUT);
   pinMode(1, OUTPUT);
   pinMode(2, OUTPUT);
 
+  //Initializing serial port
   Serial.begin(9600);
   Serial.println("");
   Serial.println("Hello there, I'm your ESP8266.");
   Serial.println("Let's talk to the relayr Cloud!");
+  
+  system("wpa_supplicant -B -Dnl80211 -iwlan0 -c/etc/wpa_supplicant/wpa_supplicant.conf");
+  system("busybox udhcpc -i wlan0");
+
+  signal(SIGPIPE,SIG_IGN);
   
   setup_wifi();
   client.setServer(MQTT_SERVER, 1883);
@@ -347,7 +348,7 @@ void publish()
 //  Serial.println("Publishing " + String(message_buff));
 
   //create our json payload
-  String pubString = "{\"meaning\":\"soundLevel\", \"value\":";
+  String pubString = "{\"meaning\":\"Sound\", \"value\":";
   //read and add sensor data to payload
   pubString += analogRead(A1);
   pubString += "}";

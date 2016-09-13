@@ -63,6 +63,8 @@ Once the tool is installed, connect the board to your computer as shown below:
 	
 ![](./assets/edison_arduino_connection_usb.jpg)
 
+**NOTE:** It is recommended to keep the second micro USB port connected all the time to an additional port of the computer, to make sure the Edison has enough current.
+
 Now open the Intel® Edison Board Configuration Tool. The tool interface should
 indicate that the firmware version installed corresponds to the 146, like
 such:
@@ -73,17 +75,19 @@ such:
 again to the latest version, which will overwrite the one that we just
 installed.
 
-### (Optional) Enable SSH and Configure the WiFi
+### Configure the WiFi
 
-The Intel® Edison Board Configuration Tool also allows you to enable SSH on
-the board and configure the WiFi. These options are not required, but may be
-useful to you in that they provide remote access to your Edison board.
+The Intel® Edison Board Configuration Tool also allows you to configure the WiFi easily. This is required, since our Edison will be sending data wirelessly to the gateway.
 
-Simply follow the instructions provided by the tool and you'll be ready to go.
-Once this process is complete, the board can be accessed remotely (e.g. through the
-CLI). Although this is not required to work with Arduino sketches, see [this
-step](https://github.com/relayr/edison/tree/master/python#connecting-your-personal-computer-with-the-intel-edison) of the Python tutorial, which
-describes the procedure.
+Click on "Connect WiFi" and follow the instructions. Select the network that you'll be using during the deployment, so later on the Edison can send data to the gateway. Once you're done and back in the main screen, the tool should indicate that the board is online, displaying the IP address as shown below:
+
+![](./assets/edison_arduino_config_tool_wifi_connected.png)
+
+### (Optional) Enable SSH
+
+Another feature this tool offers is configuring the SSH. Although for these code examples it's not required, it may be useful to you in that it provides remote access to your Edison board.
+
+Simply click on "Enable Security," follow the instructions provided by the tool and you'll be ready to go. Once this process is complete, the board can be accessed remotely (e.g. through the CLI). Again, this is not required to work with Arduino sketches, but if you are curious, you may want to see [this step](https://github.com/relayr/edison/tree/master/python#connecting-your-personal-computer-with-the-intel-edison) of the Python tutorial, which describes the procedure.
 
 ### Install and Configure the Arduino IDE
 
@@ -107,7 +111,7 @@ Now you are ready to run the code examples below!
 
 ## Code Examples
 
-Intro for examples clone the repository
+Aside from this tutorial, in this repository you may also find the following code examples that will help you getting started with the different sensors included in the kit. These codes are heavily commented so they can be the base of more complex applications.
 
 ### Example 1 (Blink)
 
