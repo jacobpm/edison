@@ -99,7 +99,23 @@ Click on "Connect WiFi" and follow the instructions. Select the network that you
 
 Another feature this tool offers is configuring the SSH. Although for these code examples it's not required, it may be useful to you in that it provides remote access to your Edison board.
 
-Simply click on "Enable Security," follow the instructions provided by the tool and you'll be ready to go. Once this process is complete, the board can be accessed remotely (e.g. through the CLI). Again, this is not required to work with Arduino sketches, but if you are curious, you may want to see [this step](https://github.com/relayr/edison/tree/master/python#connecting-your-personal-computer-with-the-intel-edison) of the Python tutorial, which describes the procedure.
+Simply click on "Enable Security," follow the instructions provided by the tool and you'll be ready to go. Once this process is complete, the board can be accessed remotely by using its Linux shell. Again, **this is not required to work with Arduino sketches**, but we'll be detailing the procedure here in case you would like to try.
+
+First we will need the Edison's IP address, which is found in the WiFi section of the Intel® Edison Board Configuration Tool, as seen in the picture of the previous section. Alternatively, we can find the IP address of the board **without** the Intel® configuration wizard by using any of the following methods:
+
+ 1. Log in to your router/access point and find the IP address assigned to the Edison board.
+ 2. Set up [mDNS](http://www.multicastdns.org/) on your Intel Edison.
+ 3. Set up the board using a **static** IP.
+ 4. Find the IP address of the board using a scanner such as [`nmap`](https://nmap.org/).
+
+Once we know the IP of the Edison we can execute the following command which will log us in the board using SSH:
+
+```shell
+ssh root@<edison's-IP-address>
+```
+
+When prompted for a password use the one that was set in the security settings of the Intel® Edison Board Configuration Tool. If everything worked properly, we should now be
+logged in to the board as **root**.
 
 ### Install and Configure the Arduino IDE
 
@@ -113,6 +129,18 @@ Boards Manager**. On the search bar (with the label "filter your search"),
 type "Edison." Only one result should display, including the family of Intel®
 i686 boards. Select it, and click on "Install." The boards manager will now
 download and install the new package.
+
+### Install the Required Libraries
+
+These code examples require the following libraries. Make sure to add them before getting started. Otherwise you will run into compilation errors!
+
+To start including them, download the following libraries in the links below, and **leave them uncompressed** (as .ZIP files):
+
+* [Arduino Client for MQTT](https://github.com/knolleary/pubsubclient/archive/master.zip): This library provides a client for doing simple publish/subscribe messaging with an MQTT broker.
+
+* [DHT Sensor Library](https://github.com/adafruit/DHT-sensor-library/archive/master.zip): Arduino library for the DHT series of low cost temperature/humidity sensors. Only necessary for the examples involving this type of sensors.
+
+Later on, in the Arduino IDE, navigate to **Sketch → Include Library**. At the top of the drop down list, select the option **Add .ZIP Library**. Now select the libraries from your file manager (one by one), and they will be integrated onto the IDE. To learn more, you may follow [this tutorial](https://www.arduino.cc/en/Guide/Libraries).
 
 Now you are ready to run the code examples below!
 
