@@ -23,9 +23,9 @@ The following hardware is required:
 
 **NOTE:** The additional hardware required for the code examples is specified the Arduino and Python tutorials, although everything what's necessary is already included in the [IoT Acceleration Starter Kit](http://www.iot-starterkit.de/).
 
-## Installation & Configuration (WIP!)
+## Installation & Configuration
 
-### Setting Up the Hardware (WIP!)
+### Setting Up the Hardware
 
 Assemble the Arduino Expansion Board found in your Dell Starter Kit according
 to the directions in the [Intel® Edison guide](https://software.intel.com/en-us/node/628221).
@@ -34,15 +34,19 @@ Before continuing, make sure that your board looks like this:
 
 ![](./assets/edison_assembled_board.jpg)
 
-## Association with Vertex
+### Setting Up the Software
 
-**NOTE:** This documentation will not be necessary when using the Vertex dashboard, since this process is implemented automatically. This section describes the required manual process until the dashboard is ready fr release.
-
-**IMPORTANT:** To associate your device with Vertex, first it's necessary to configure the device according to the programming language of your choice. We'll come back to this section later! **First, please select one of the available languages**, and follow the instructions until the end:
+Once our board is ready, it's time to configure the software of the Edison according to the programming language of your choice. **Before proceeding with the association with Vertex, select one of the following tutorials, and complete all the steps:**
 
 * [Python](https://github.com/relayr/edison/tree/master/python)
 * [Arduino](https://github.com/relayr/edison/tree/master/arduino)
 
+## Association with Vertex
+
+**NOTE:** This documentation will not be necessary when using the Vertex dashboard, since this process is implemented automatically. This section describes the required manual process until the dashboard is ready fr release.
+
+**IMPORTANT:** To associate your device with Vertex, first it's necessary to set up the software of the Edison according to the programming language of your choice. We'll come back to this section later! **First, please select one of the available languages mentioned in the previous section**, and follow the instructions until the end. 
+ 
 Once you've completed one of the tutorials (for Python or Arduino), and you are ready to try the code examples, we can associate the device with Vertex. This section explains how to do that, as well as where to find the required parameters to introduce in the code examples.
 
 ### Create a Device In the Developer Dashboard
