@@ -21,6 +21,8 @@ The following hardware is required:
  * [Dell Edge Gateway 5100]()
  * [Intel® Edison Arduino Breakout Kit]()
 
+A computer is required to connect the Edison board for flashing and configuration.
+
 **NOTE:** The additional hardware required for the code examples is specified the Arduino and Python tutorials, although everything what's necessary is already included in the [IoT Acceleration Starter Kit](http://www.iot-starterkit.de/).
 
 ## Installation & Configuration
@@ -43,7 +45,7 @@ Once our board is ready, it's time to configure the software of the Edison accor
 
 ## Association with Vertex
 
-**NOTE:** This documentation will not be necessary when using the Vertex dashboard, since this process is implemented automatically. This section describes the required manual process until the dashboard is ready fr release.
+**NOTE:** This documentation will not be necessary when using the Vertex dashboard, since this process is implemented automatically. This section describes the required manual process until the dashboard is ready for release.
 
 **IMPORTANT:** To associate your device with Vertex, first it's necessary to set up the software of the Edison according to the programming language of your choice. We'll come back to this section later! **First, please select one of the available languages mentioned in the previous section**, and follow the instructions until the end. 
  

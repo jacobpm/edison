@@ -42,7 +42,12 @@ firmware:**
 1.  First, download a previous version of the firmware. The code examples in this guide have been tested using the **firmware image 146 (ww18-15)**, which you can find [here](https://downloadmirror.intel.com/24910/eng/edison-image-ww18-15.zip).
 2.  Unzip the file. 
 3.  Download and install the Intel® Flash Tool Lite, which will help flash the firmware on to the board. [Click here for information on how to install this tool.](https://software.intel.com/en-us/using-flash-tool-lite)
+
+[THIS SUCKS]
+
 4.  Open Flash Tool Lite and follow the procedure to flash the firmware image you just downloaded, as explained in [this tutorial](https://software.intel.com/en-us/flashing-firmware-with-flash-tool-lite).
+
+[PIC WITH USB PORTS, EXPLAIN THE UNPLUG AND RE-PLUG]
 
 It may take over 5 minutes until the process is complete, so be patient!
 
