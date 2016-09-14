@@ -21,7 +21,7 @@ The following hardware is required:
  * [Dell Edge Gateway 5100]()
  * [Intel® Edison Arduino Breakout Kit]()
 
-Note: The additional hardware required for the code examples is specified the Arduino and Python tutorials, although everything what's necessary is already included in the [IoT Acceleration Starter Kit](http://www.iot-starterkit.de/).
+**NOTE:** The additional hardware required for the code examples is specified the Arduino and Python tutorials, although everything what's necessary is already included in the [IoT Acceleration Starter Kit](http://www.iot-starterkit.de/).
 
 ## Installation & Configuration (WIP!)
 
