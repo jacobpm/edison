@@ -4,6 +4,7 @@ import paho.mqtt.client as paho
 import pyupm_buzzer as upm_buzzer
 import pyupm_apds9002 as upm_luminosity
 import pyupm_biss0001 as upm_motion
+import pyupm_grovewater as upm_water
 
 
 def passed_time(initial_time):
@@ -76,7 +77,8 @@ buzzer.setVolume(0.01)
 luminosity = upm_luminosity.APDS9002(0)
 # Instantiate a motion sensor object with digital pin D2 as an input.
 motion = upm_motion.BISS0001(2)
-
+# Instantiate a water sensor object with digital pin D3 as an input.
+water = upm_water.GroveWater(3)
 # Initialize the MQTT client.
 client = paho.Client()
 # Set the MQTT username and password.
@@ -98,7 +100,8 @@ while True:
         last_sent = datetime.datetime.now()
         # Form a python dictionary payload
         data = [{'meaning': 'motion', 'value': motion.value()},
-                {'meaning': 'luminosity', 'value': luminosity.value()}]
+                {'meaning': 'luminosity', 'value': luminosity.value()},
+                {'meaning': 'water', 'value': water.isWet()}]
         # Publish the payload as a json message to the 'data' MQTT topic.
         client.publish(mqtt_credentials['topic'] + '/data',
                        payload=json.dumps(data),
