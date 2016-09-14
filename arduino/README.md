@@ -40,14 +40,21 @@ sketches after booting. Therefore, we must first **downgrade the Edison's
 firmware:**
 
 1.  First, download a previous version of the firmware. The code examples in this guide have been tested using the **firmware image 146 (ww18-15)**, which you can find [here](https://downloadmirror.intel.com/24910/eng/edison-image-ww18-15.zip).
-2.  Unzip the file. 
-3.  Download and install the Intel® Flash Tool Lite, which will help flash the firmware on to the board. [Click here for information on how to install this tool.](https://software.intel.com/en-us/using-flash-tool-lite)
 
-[THIS SUCKS]
+2.  Unzip the file.
 
-4.  Open Flash Tool Lite and follow the procedure to flash the firmware image you just downloaded, as explained in [this tutorial](https://software.intel.com/en-us/flashing-firmware-with-flash-tool-lite).
+3.  Download and install the Intel® Flash Tool Lite, which will help flash the firmware on to the board. Select the version of your operating system:
 
-[PIC WITH USB PORTS, EXPLAIN THE UNPLUG AND RE-PLUG]
+	- [Windows (32 and 64-bit)](https://download.01.org/android-ia/tools/platformflashtool-lite/5.5.2.0/PlatformFlashToolLite_5.5.2.0_win32.exe)
+	- [Mac OS](https://download.01.org/android-ia/tools/platformflashtool-lite/5.5.2.0/PlatformFlashToolLite_5.5.2.0_mac64.pkg)
+	- [Ubuntu](https://download.01.org/android-ia/tools/platformflashtool-lite/5.5.2.0/platformflashtoollite_5.5.2.0_linux_x86_64.deb)
+	- [Fedora](https://download.01.org/android-ia/tools/platformflashtool-lite/5.5.2.0/platformflashtoollite_5.5.2.0_linux_x86_64.rpm)
+
+4. Once the tool is installed, connect the board to your computer using both micro USB ports, as shown below:
+![](./assets/edison_arduino_connection_2xusb.png)
+Should you need additional help on this step, a detailed explanation can be found [here](https://software.intel.com/en-us/flashing-firmware-with-flash-tool-lite#With_Arduino_expansion).
+
+5. Now open Flash Tool Lite and follow the procedure to flash the firmware image you just downloaded, as explained in [this tutorial](https://software.intel.com/en-us/flashing-firmware-with-flash-tool-lite#Flashing_your_board). If the tool has trouble finding your Edison, try disconnecting and reconnecting the micro USB cable marked as #2 in the picture above.
 
 It may take over 5 minutes until the process is complete, so be patient!
 

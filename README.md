@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The [Intel® Edison](http://www.intel.com/content/www/us/en/do-it-yourself/edison.html) is a tiny board-computer with a Silvermont dual-core Intel Atom CPU, integrating WiFi, Bluetooth 4.0, 1 GB DDR, 4 GB eMMC flash memory and USB controllers. The 40 multiplexed GPIO pins, high computing power and connectivity capabilities allow rapid industrial IoT and fog computing prototyping.
+The [Intel® Edison](http://www.intel.com/content/www/us/en/do-it-yourself/edison.html) is a single-board computer with a Silvermont dual-core Intel Atom CPU, integrating WiFi, Bluetooth 4.0, 1 GB DDR, 4 GB eMMC flash memory and USB controllers. The 40 multiplexed GPIO pins, high computing power and connectivity capabilities allow rapid industrial IoT and fog computing prototyping.
 
 In this repository you will find tutorials and code examples to make use of the Edison as a sensor node with the [IoT Acceleration Starter
 Kit](http://www.iot-starterkit.de/), using two languages: Python and Arduino.
