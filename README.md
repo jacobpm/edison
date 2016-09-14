@@ -7,6 +7,8 @@ The [Intel® Edison](http://www.intel.com/content/www/us/en/do-it-yourself/ediso
 In this repository you will find tutorials and code examples to make use of the Edison as a sensor node with the [IoT Acceleration Starter
 Kit](http://www.iot-starterkit.de/), using two languages: Python and Arduino.
 
+![](./assets/edison_intro_pic.jpg)
+
 This document provides some resources on how to get started with the Edison, including the mechanical assembly. **If your board has already been assembled, then please navigate to one of the available tutorials to continue:**
 
 * [Python](https://github.com/relayr/edison/tree/master/python)
@@ -30,9 +32,11 @@ to the directions in the [Intel® Edison guide](https://software.intel.com/en-us
 
 Before continuing, make sure that your board looks like this:
 
-![](https://software.intel.com/sites/default/files/did_feeds_images/ede08869-dd67-4ac5-a530-3078328837d4/ede08869-dd67-4ac5-a530-3078328837d4-imageId=850cc2a6-6c4d-4181-bd77-098bb6ec97f8.jpg)
+![](./assets/edison_assembled_board.jpg)
 
-## Association with Vertex (WIP!)
+## Association with Vertex
+
+**NOTE:** This documentation will not be necessary when using the Vertex dashboard, since this process is implemented automatically. This section describes the required manual process until the dashboard is ready fr release.
 
 **IMPORTANT:** To associate your device with Vertex, first it's necessary to configure the device according to the programming language of your choice. We'll come back to this section later! **First, please select one of the available languages**, and follow the instructions until the end:
 
@@ -45,7 +49,6 @@ Once you've completed one of the tutorials (for Python or Arduino), and you are 
 
 The very first step in order to try the different examples is to create a device in the relayr platform. Navigate to the [Developer Dashboard](https://dev.relayr.io), log in with your account credentials, and follow the instructions of [this tutorial](http://docs.relayr.io/getting-started/devices-guide/#introduction).
 
-**[TO CONFIRM!]**  
 **NOTE:** Log in to the account where Vertex has been onboarded! All devices associated with Vertex have to be on the same account as Vertex itself.
 
 ### Parameters
@@ -103,3 +106,29 @@ Fill in the following parameters to make the request:
 ```
 
 ## References
+
+## License
+
+ Copyright (C) 2016 relayr GmbH, Klemen Lilija <klemen@relayr.de>, Jaime González-Arintero <jaime@relayr.io>
+
+ Permission is hereby granted, free of charge, to any person obtaining a 
+ copy of this software and associated documentation files (the "Software"), 
+ to deal in the Software without restriction, including without limitation 
+ the rights to use, copy, modify, merge, publish, distribute, sublicense, 
+ and/or sell copies of the Software, and to permit persons to whom the 
+ Software is furnished to do so, subject to the following conditions: 
+
+ The above copyright notice and this permission notice shall be included in 
+ all copies or substantial portions of the Software. 
+
+ Except as contained in this notice, the name(s) of the above copyright 
+ holders shall not be used in advertising or otherwise to promote the sale, 
+ use or other dealings in this Software without prior written authorization. 
+
+ THE SOFTWARE IS PROVIDED "AS IS," WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL 
+ THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
+ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
+ DEALINGS IN THE SOFTWARE. 

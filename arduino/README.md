@@ -30,7 +30,7 @@ to the directions in the [Intel® Edison guide](https://software.intel.com/en-us
 
 Before continuing, make sure that your board looks like this:
 
-![](./assets/edison_arduino_assembled_board.jpg)
+![](../assets/edison_assembled_board.jpg)
 
 ### Setting Up the Firmware 
 
