@@ -30,7 +30,7 @@ to the directions in the [Intel® Edison guide](https://software.intel.com/en-us
 
 Before continuing, make sure that your board looks like this:
 
-![](./assets/edison_arduino_assembled_board.jpg)
+![](../assets/edison_assembled_board.jpg)
 
 ### Setting Up the Firmware 
 
@@ -40,9 +40,21 @@ sketches after booting. Therefore, we must first **downgrade the Edison's
 firmware:**
 
 1.  First, download a previous version of the firmware. The code examples in this guide have been tested using the **firmware image 146 (ww18-15)**, which you can find [here](https://downloadmirror.intel.com/24910/eng/edison-image-ww18-15.zip).
-2.  Unzip the file. 
-3.  Download and install the Intel® Flash Tool Lite, which will help flash the firmware on to the board. [Click here for information on how to install this tool.](https://software.intel.com/en-us/using-flash-tool-lite)
-4.  Open Flash Tool Lite and follow the procedure to flash the firmware image you just downloaded, as explained in [this tutorial](https://software.intel.com/en-us/flashing-firmware-with-flash-tool-lite).
+
+2.  Unzip the file.
+
+3.  Download and install the Intel® Flash Tool Lite, which will help flash the firmware on to the board. Select the version of your operating system:
+
+	- [Windows (32 and 64-bit)](https://download.01.org/android-ia/tools/platformflashtool-lite/5.5.2.0/PlatformFlashToolLite_5.5.2.0_win32.exe)
+	- [Mac OS](https://download.01.org/android-ia/tools/platformflashtool-lite/5.5.2.0/PlatformFlashToolLite_5.5.2.0_mac64.pkg)
+	- [Ubuntu](https://download.01.org/android-ia/tools/platformflashtool-lite/5.5.2.0/platformflashtoollite_5.5.2.0_linux_x86_64.deb)
+	- [Fedora](https://download.01.org/android-ia/tools/platformflashtool-lite/5.5.2.0/platformflashtoollite_5.5.2.0_linux_x86_64.rpm)
+
+4. Once the tool is installed, connect the board to your computer using both micro USB ports, as shown below:
+![](./assets/edison_arduino_connection_2xusb.png)
+Should you need additional help on this step, a detailed explanation can be found [here](https://software.intel.com/en-us/flashing-firmware-with-flash-tool-lite#With_Arduino_expansion).
+
+5. Now open Flash Tool Lite and follow the procedure to flash the firmware image you just downloaded, as explained in [this tutorial](https://software.intel.com/en-us/flashing-firmware-with-flash-tool-lite#Flashing_your_board). If the tool has trouble finding your Edison, try disconnecting and reconnecting the micro USB cable marked as #2 in the picture above.
 
 It may take over 5 minutes until the process is complete, so be patient!
 
@@ -87,7 +99,23 @@ Click on "Connect WiFi" and follow the instructions. Select the network that you
 
 Another feature this tool offers is configuring the SSH. Although for these code examples it's not required, it may be useful to you in that it provides remote access to your Edison board.
 
-Simply click on "Enable Security," follow the instructions provided by the tool and you'll be ready to go. Once this process is complete, the board can be accessed remotely (e.g. through the CLI). Again, this is not required to work with Arduino sketches, but if you are curious, you may want to see [this step](https://github.com/relayr/edison/tree/master/python#connecting-your-personal-computer-with-the-intel-edison) of the Python tutorial, which describes the procedure.
+Simply click on "Enable Security," follow the instructions provided by the tool and you'll be ready to go. Once this process is complete, the board can be accessed remotely by using its Linux shell. Again, **this is not required to work with Arduino sketches**, but we'll be detailing the procedure here in case you would like to try.
+
+First we will need the Edison's IP address, which is found in the WiFi section of the Intel® Edison Board Configuration Tool, as seen in the picture of the previous section. Alternatively, we can find the IP address of the board **without** the Intel® configuration wizard by using any of the following methods:
+
+ 1. Log in to your router/access point and find the IP address assigned to the Edison board.
+ 2. Set up [mDNS](http://www.multicastdns.org/) on your Intel Edison.
+ 3. Set up the board using a **static** IP.
+ 4. Find the IP address of the board using a scanner such as [`nmap`](https://nmap.org/).
+
+Once we know the IP of the Edison we can execute the following command which will log us in the board using SSH:
+
+```shell
+ssh root@<edison's-IP-address>
+```
+
+When prompted for a password use the one that was set in the security settings of the Intel® Edison Board Configuration Tool. If everything worked properly, we should now be
+logged in to the board as **root**.
 
 ### Install and Configure the Arduino IDE
 
@@ -101,6 +129,17 @@ Boards Manager**. On the search bar (with the label "filter your search"),
 type "Edison." Only one result should display, including the family of Intel®
 i686 boards. Select it, and click on "Install." The boards manager will now
 download and install the new package.
+
+### Install the Required Libraries
+
+These code examples require the following libraries. Make sure to add them before getting started. Otherwise you will run into compilation errors!
+
+To start including them, download the following libraries in the links below, and **leave them uncompressed** (as .ZIP files):
+
+* [Arduino Client for MQTT](https://github.com/knolleary/pubsubclient/archive/master.zip): This library provides a client for doing simple publish/subscribe messaging with an MQTT broker.
+* [DHT Sensor Library](https://github.com/adafruit/DHT-sensor-library/archive/master.zip): Arduino library for the DHT series of low cost temperature/humidity sensors. Only necessary for the examples involving this type of sensors.
+
+Later on, in the Arduino IDE, navigate to **Sketch → Include Library**. At the top of the drop down list, select the option **Add .ZIP Library**. Now select the libraries from your file manager (one by one), and they will be integrated onto the IDE. To learn more, you may follow [this tutorial](https://www.arduino.cc/en/Guide/Libraries).
 
 Now you are ready to run the code examples below!
 
