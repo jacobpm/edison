@@ -279,6 +279,76 @@ python path/to/multi_sensor.py
 
 From then on your device will be publishing sensor data every 0.5 seconds to the relayr Cloud. You can see the incoming data on the relayr Dashboard and similarly as in the `buzzer.py` example, you can trigger a sound by pressing *True* in the *buzzer* widget.
 
+### Starting scripts automatically at system start-up
+
+In most cases you'll wish to start sending data automatically when you power on your Intel Edison board. This section will guide you through configuration of Edison for automatically triggering a Python scrip on boot.
+
+We will use [**`systemd`**](https://www.freedesktop.org/software/systemd/man/systemd.html#), a system and service manager for Linux operating system, while creating a new service responsible for monitoring and sending sensor data. You can find a `mote.service` service configuration file in `edison/python/autostart/` folder.
+
+If you look into it you'll see a simple `systemd` unit definition triggering a `mote` shell script.
+
+```text
+[Unit]
+Description=Sensor Monitoring Service
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+ExecStart=/home/root/edison/python/autostart/mote
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Mote shell script is also in the `edison/python/autostart/` and contains only two commands:
+
+```shell
+source /home/root/edison/ENV/bin/activate
+python /home/root/edison/python/examples/multi_sensor.py
+```
+
+The first one activates `ENV` python virtual environment in the code repository folder, while the second one runs the `multi_sensor.py` script in the examples folder. Adjust the paths to the virtual environment (or delete the line if you don't use one) and to the Python script you wish to run at system start-up.
+
+Next make the `mote` shell script executable by utilizing the following command:
+
+```shell
+chmod +x edison/python/autostart/mote
+```
+
+You can test if the shell script has right permissions and works properly by executing:
+
+```shell
+./edison/python/autostart/mote
+```
+
+If everything is fine and the Python script is being triggered you can kill the process and move on to copying `mote.service` to the `/lib/systemd/system/` folder:
+
+```shell
+cp edison/python/autostart/mote.service /lib/systemd/system/
+```
+
+Once the service configuration file is in the proper `systemd` folder we have to change its permissions:
+
+```shell
+chmod 644 /lib/systemd/system/mote.service
+```
+
+Now everything is ready and you can reload all the `systemd` configurations
+
+```shell
+systemctl daemon-reload
+```
+
+and enable the service with:
+
+```shell
+systemctl enable mote.service
+```
+
+From now on, when restarting the Edison board the `multi_sensor.py` script should start automatically. You can use `systemctl stop mote.service` to stop the `mote.service` and `systemctl disable mote.service` to remove it from the list of services that start on system start-up. For troubleshooting and/or more advance service configurations consult the [following documentation](https://www.freedesktop.org/software/systemd/man/systemd.html#).
+
 
 # Further steps
 
