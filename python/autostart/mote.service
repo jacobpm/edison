@@ -1,0 +1,12 @@
+[Unit]
+Description=Sensor Monitoring Service
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+ExecStart=/home/root/edison/python/autostart/mote
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

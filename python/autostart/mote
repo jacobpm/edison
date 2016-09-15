@@ -1,0 +1,3 @@
+#!/bin/bash
+source /home/root/edison/ENV/bin/activate
+python /home/root/edison/python/examples/multi_sensor.py
