@@ -187,7 +187,7 @@ We will need a representation of our Intel Edison board in the relayr Cloud. Thr
 
 After successfully creating a device on relayr Cloud we are ready to run the first example.
 
-### Example 1 (blink.py)
+### Example 1 (`blink.py`)
 
 The `blink.py` example is a *Hello world* script which will toggle the LED on the Edison board every 0.5 seconds. We will run it mostly to test if `libmraa` library has been installed properly and you can interact with the GPIOs of your Edison board
 
@@ -199,7 +199,7 @@ python path/to/blink.py
 
 If the `libmraa` version was printed in your terminal and the LED on the board started blinking then you can move on to the next example in which we will connect a motion sensor to the Edison board. If the code example failed to execute without errors then the problem is most likely related to the installation of the `libmraa` library. Review the `libmraa` installation instruction in the previous section of this document and consult the official [documentation](https://github.com/intel-iot-devkit/mraa) for troubleshooting.
 
-### Example 2 (motion_sensor.py)
+### Example 2 (`motion_sensor.py`)
 
 The `motion_sensor.py` example uses a PIR motion sensor to detect movements in its proximity. Sensor outputs a digital value (*HIGH* if there is movement and *LOW* if there is no movement) which is then sent to the Dell gateway and relayr Cloud.
 
@@ -231,7 +231,7 @@ If everything went well, you should see a message in your terminal when the MQTT
 
 If you run into troubles, make sure that you have all the Python dependencies installed (`libmraa` and `paho-mqtt`) and virtual Python environment activated (if you are using one.)
 
-### Example 3 (buzzer.py)
+### Example 3 (`buzzer.py`)
 
 The `buzzer.py` example shows you how to receive commands from the relayr Cloud and/or the Dell gateway. The command received by Intel Edison will remotely turn on or off a piezo buzzer.
 
@@ -260,7 +260,7 @@ python path/to/buzzer.py
 Now the Intel Edison is listening to the messages from the relayr Cloud. You can control the buzzer by pressing **True** or **False** in the **buzzer** widget on the relayr Dashboard and if you did everything right you'll hear a buzzing sound.
 
 
-### Example 4 (multi_sensor.py)
+### Example 4 (`multi_sensor.py`)
 
 The `multi_sensor.py` example uses the following sensors and actuators: PIR motion sensor, luminosity sensor, water sensor and a buzzer.
 

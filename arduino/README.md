@@ -158,15 +158,17 @@ The script toggles the GPIO 13 output every second. When the sketch is running y
 
 If everything works well we can move on to the next example in which we will connect a motion sensor to the Edison board. If after a few seconds the LED is not blinking on your board, you may need to re-flash the firmware image again, as described in the [previous steps](#setting-up-the-firmware).
 
-### Example 2 (motion.ino)
+### Example 2 (`motion.ino`)
 
-intro, what, how, congrats
+WIP!
 
-### Example 3 (buzzer.ino)
+### Example 3 (`buzzer.ino`)
 
-intro, what, how, congrats
+WIP!
 
-### Example 4 (luminosity.ino)
+### Example 4 (`luminosity_sensor.ino`)
+
+
 
 ## References
 
