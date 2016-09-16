@@ -16,8 +16,8 @@ The following hardware is required:
 
  * [Dell Edge Gateway 5100]()
  * [Intel® Edison Arduino Breakout Kit]()
- * [Seedstudio Grove Base Shield v2](http://wiki.seeedstudio.com/wiki/Grove_-_Base_shield_v2)
- * [Seedstudio Sensor Kit]()
+ * [Seeedstudio Grove Base Shield v2](http://wiki.seeedstudio.com/wiki/Grove_-_Base_shield_v2)
+ * [Seeedstudio Sensor Kit]()
 
 A computer is required to connect the Edison board for flashing and configuration.
 
@@ -166,7 +166,7 @@ intro, what, how, congrats
 
 intro, what, how, congrats
 
-### Example 4 (multi_sensor.ino)
+### Example 4 (luminosity.ino)
 
 ## References
 

@@ -199,15 +199,15 @@ python path/to/blink.py
 
 If the `libmraa` version was printed in your terminal and the LED on the board started blinking then you can move on to the next example in which we will connect a motion sensor to the Edison board. If the code example failed to execute without errors then the problem is most likely related to the installation of the `libmraa` library. Review the `libmraa` installation instruction in the previous section of this document and consult the official [documentation](https://github.com/intel-iot-devkit/mraa) for troubleshooting.
 
-### Example 2 (motion.py)
+### Example 2 (motion_sensor.py)
 
-The `motion.py` example uses a PIR motion sensor to detect movements in its proximity. Sensor outputs a digital value (*HIGH* if there is movement and *LOW* if there is no movement) which is then sent to the Dell gateway and relayr Cloud.
+The `motion_sensor.py` example uses a PIR motion sensor to detect movements in its proximity. Sensor outputs a digital value (*HIGH* if there is movement and *LOW* if there is no movement) which is then sent to the Dell gateway and relayr Cloud.
 
 First prepare the hardware by connecting the *PIR motion sensor* to the **Digital Pin 2 (D2)**.
 
 ![D2 pin](assets/d2-pin.jpg)
 
-Next modify the `motion.py` Python script with MQTT credentials of the device you've created at relayr Dashboard. You can use the `nano path/to/motion.py` command to open the script in the nano editor. Change the following part of the code:
+Next modify the `motion_sensor.py` Python script with MQTT credentials of the device you've created at relayr Dashboard. You can use the `nano path/to/motion_sensor.py` command to open the script in the nano editor. Change the following part of the code:
 
 ```python
 # MQTT credentials.
@@ -224,7 +224,7 @@ and save the changes by pressing `control` + `X` and confirming the command with
 Now you are ready to execute the Python script by using the following command:
 
 ```shell
-python path/to/motion.py
+python path/to/motion_sensor.py
 ```
 
 If everything went well, you should see a message in your terminal when the MQTT client running on the Edison connects to the MQTT broker in the Dell gateway. If the connection is successfully established, and everything is working properly a `{'meaning': 'motion', 'value': True}` JSON message will be sent every 0.5 second to the Dell gateway and from there to the relayr Cloud. The `'value': True` will change accordingly to the motion detected by the PIR sensor. You can observe the changes on the relayr Dashboard.
