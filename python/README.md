@@ -122,15 +122,16 @@ manager.
 ```shell
 pip install virtualenv
 ```
+
 Once installed, we can create an isolated environment wherever we
-want. Lets move (`cd`) into our code repository and create an environment called `ENV`.
+want. Let's move (`cd`) into our code repository and create an environment called `ENV`.
 
 ```shell
 cd ~/edison/
 virtualenv --system-site-packages ENV
 ```
 
-The `--system-site-packages` flag is for inheriting all the packages in the global site-packages directory. As we wish to use the `libmraa` python bindings, which we previously installed globally, it is necessary that we use `----system-site-packages` flag.
+The `--system-site-packages` flag is used to inherit all of the packages from the global site-packages directory. Because we need to use the `libmraa` Python bindings, which we previously installed globally, it is necessary to use the `--system-site-packages` flag.
 
 To activate the environment, run:
 
