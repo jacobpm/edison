@@ -186,15 +186,13 @@ ready to make use of MQTT and run the code examples.
 
 The code examples below will get you started with using Intel® Edison board as a sensor node.
 
-<<<<<<< HEAD
 We will need a representation of our Intel Edison board in the relayr Cloud. Through this entity we will manage sent/received data, MQTT credentials and UI interface of the relayr Dashboard. To create a device on relayr Dashboard follow the [**Devices Guide**](http://docs.relayr.io/getting-started/devices-guide/) and select the **Intel Edison (IoT Acceleration Starter Kit)** as a *Device Model*.
-=======
+
 We will need to add our Intel Edison board as a device on the relayr Cloud.
 Through this entity, we will manage sent/received data and MQTT credentials.
 To create a device on Dashboard, follow the [Devices
 Guide](http://docs.relayr.io/getting-started/devices-guide/) and select the
 **Intel Edison (IoT acceleration starter kit)** as a *Device Model*.
->>>>>>> 14d8deb13564b8cd28e1a252d0d91eb07b6eaed9
 
 Once you've added your device to the relayr cloud, you are ready to run the first example.
 
