@@ -19,17 +19,18 @@ This document provides resources on how to get started with the Edison,
 including the mechanical assembly. **If your board has already been assembled,
 then please navigate to one of the available tutorials to continue:**
 
-* [Python](https://github.com/relayr/edison/tree/master/python)
-* [Arduino](https://github.com/relayr/edison/tree/master/arduino)
+-  [Python](https://github.com/relayr/edison/tree/master/python)
+-  [Arduino](https://github.com/relayr/edison/tree/master/arduino)
 
 ## Requirements
 
 The following hardware is required:
 
- * [Dell Edge Gateway 5100]()
- * [Intel® Edison Arduino Breakout Kit]()
+-  [Dell Edge Gateway 5100]()
+-  [Intel® Edison Arduino Breakout Kit]()
 
-A computer is required to connect the Edison board for flashing and configuration.
+A computer is required to connect the Edison board for flashing and
+configuration.
 
 **NOTE:** The additional hardware required for the code examples is specified the Arduino and Python tutorials. All necessary parts are included in the [IoT Acceleration Starter Kit](http://www.iot-starterkit.de/).
 
@@ -43,7 +44,7 @@ us/node/628221).
 
 Before continuing, make sure that your board looks like this:
 
-![](./assets/edison_assembled_board.jpg)
+![Edison assembled board](./assets/edison_assembled_board.jpg)
 
 After that, plug the Grove Base Shield onto your Arduino Expansion Board as shown below, and you'll be ready to go:
 
@@ -56,8 +57,8 @@ according to the programming language of your choice. **Before proceeding with
 the Vertex integration,** select one of the following tutorials, and
 complete all the steps:
 
-* [Python](https://github.com/relayr/edison/tree/master/python)
-* [Arduino](https://github.com/relayr/edison/tree/master/arduino)
+-  [Python](https://github.com/relayr/edison/tree/master/python)
+-  [Arduino](https://github.com/relayr/edison/tree/master/arduino)
 
 ## Association with Vertex
 
@@ -92,9 +93,9 @@ Vertex itself.
 The following parameters are required in order to associate the device with Vertex:
 
 -  `Vertex Id`: UUID of your Vertex gateway. For more information, please [refer to the Vertex documentation]() **[LINK TO BE ADDED!!!]**.
-* `Authorization Token`: A token that authorizes you to make API calls to your user account and - evices that you manage. [Here is more info about it](http://docs.relayr.io/getting-started/account-creation/#user-id-and-authorization-token) and where to retrieve it.
+-  `Authorization Token`: A token that authorizes you to make API calls to your user account and - evices that you manage. [Here is more info about it](http://docs.relayr.io/getting-started/account-creation/#user-id-and-authorization-token) and where to retrieve it.
 -  `Device Id`: UUID of the device that will be associated with Vertex. Provided by the relayr - latform [when adding a device](http://docs.relayr.io/getting-started/devices-guide/).
-* `User`: MQTT user, in this case the same as the `Device Id`.
+-  `User`: MQTT user, in this case the same as the `Device Id`.
 -  `Password`: MQTT password. Provided by the relayr platform [when adding a device](http://docs.relayr.io/getting-started/devices-guide/).
 -  `MQTT Server Hostname`: The IP address of your Vertex gateway. This is not specifically required in this step, but it will be added into the code examples. For more information, please [refer to the Vertex documentation]() **[LINK TO BE ADDED!!!]**.
 
@@ -120,8 +121,8 @@ Fill in the following parameters to make the request:
 
 **Headers:**
 
-* 	`Authorization: Bearer {your Authorization Token}`
-*  `Content-Type: application/json`
+-  `Authorization: Bearer {your Authorization Token}`
+-  `Content-Type: application/json`
 
 **Body:**
 
@@ -137,8 +138,6 @@ Fill in the following parameters to make the request:
 }
 
 ```
-
-## References
 
 ## License
 
