@@ -183,31 +183,50 @@ ready to make use of MQTT and run the code examples.
 
 The code examples below will get you started with using Intel Edison board as a sensor node.
 
-We will need a representation of our Intel Edison board in the relayr Cloud. Through this entity we will manage sent/received data, MQTT credentials and UI interface of the relayr Dashboard. To create a device on relayr Dashboard follow the [**Devices Guide**](http://docs.relayr.io/getting-started/devices-guide/) and select the **Intel Edison (IoT acceleration starter kit)** as a *Device Model*.
+We will need to add our Intel Edison board as a device on the relayr Cloud.
+Through this entity, we will manage sent/received data and MQTT credentials.
+To create a device on Dashboard, follow the [Devices
+Guide](http://docs.relayr.io/getting-started/devices-guide/) and select the
+**Intel Edison (IoT acceleration starter kit)** as a *Device Model*.
 
-After successfully creating a device on relayr Cloud we are ready to run the first example.
+Once you've added your device to the relayr cloud, you are ready to run the first example.
 
 ### Example 1 (`blink.py`)
 
-The `blink.py` example is a *Hello world* script which will toggle the LED on the Edison board every 0.5 seconds. We will run it mostly to test if `libmraa` library has been installed properly and you can interact with the GPIOs of your Edison board
+The `blink.py` example is a *Hello world* script which will toggle the LED on
+the Edison board every 0.5 seconds. We will run it mostly to test if `libmraa`
+has been installed properly and to interact with the GPIOs of your Edison
+board.
 
-To run the Python code example execute the following command in the Intel Edison Linux shell:
+To run the Python code example, execute the following command in the Intel Edison Linux shell:
 
 ```shell
 python path/to/blink.py
 ```
 
-If the `libmraa` version was printed in your terminal and the LED on the board started blinking then you can move on to the next example in which we will connect a motion sensor to the Edison board. If the code example failed to execute without errors then the problem is most likely related to the installation of the `libmraa` library. Review the `libmraa` installation instruction in the previous section of this document and consult the official [documentation](https://github.com/intel-iot-devkit/mraa) for troubleshooting.
+If the `libmraa` version was printed in your terminal and the LED on the board
+started blinking, then you can move on to the next example, in which we will
+connect a motion sensor to the Edison board. If the code example failed to
+execute without errors, then the problem is most likely related to the
+installation of the `libmraa` library. Review the `libmraa` installation
+instruction in the previous section of this document and consult the official
+[documentation](https://github.com/intel-iot-devkit/mraa) for troubleshooting.
 
 ### Example 2 (`motion_sensor.py`)
 
-The `motion_sensor.py` example uses a PIR motion sensor to detect movements in its proximity. Sensor outputs a digital value (*HIGH* if there is movement and *LOW* if there is no movement) which is then sent to the Dell gateway and relayr Cloud.
+The `motion_sensor.py` example uses a PIR motion sensor to detect movements in
+its proximity. The sensor outputs a digital value (*HIGH* if there is movement,
+*LOW* if there is no movement) that is then sent to the Dell gateway and
+the relayr cloud.
 
-First prepare the hardware by connecting the *PIR motion sensor* to the **Digital Pin 2 (D2)**.
+First, prepare the hardware by connecting the *PIR motion sensor* to the **Digital Pin 2 (D2)**.
 
 ![D2 pin](assets/d2-pin.jpg)
 
-Next modify the `motion_sensor.py` Python script with MQTT credentials of the device you've created at relayr Dashboard. You can use the `nano path/to/motion_sensor.py` command to open the script in the nano editor. Change the following part of the code:
+Next, modify the `motion_sensor.py` Python script with the MQTT credentials of
+the device you've created on the relayr Dashboard. You can use the `nano
+path/to/motion_sensor.py` command to open the script in the nano editor.
+Change the following part of the code:
 
 ```python
 # MQTT credentials.
@@ -219,7 +238,7 @@ mqtt_credentials = {
 }
 ```
 
-and save the changes by pressing `control` + `X` and confirming the command with `Y`.
+and save the changes by pressing `Control` + `X` and confirming the command with `Y`.
 
 Now you are ready to execute the Python script by using the following command:
 
@@ -227,19 +246,31 @@ Now you are ready to execute the Python script by using the following command:
 python path/to/motion_sensor.py
 ```
 
-If everything went well, you should see a message in your terminal when the MQTT client running on the Edison connects to the MQTT broker in the Dell gateway. If the connection is successfully established, and everything is working properly a `{'meaning': 'motion', 'value': True}` JSON message will be sent every 0.5 second to the Dell gateway and from there to the relayr Cloud. The `'value': True` will change accordingly to the motion detected by the PIR sensor. You can observe the changes on the relayr Dashboard.
+You should see a message in your terminal when the MQTT client running on the
+Edison connects to the MQTT broker in the Dell gateway. If the connection is
+successful and everything is working properly, then a JSON schema of
+`{'meaning': 'motion', 'value': True}` will be sent every 0.5 seconds to the
+Dell gateway and from there to the relayr cloud. The value of the `value`
+property will change according to the motion detected by the PIR sensor. You
+can observe the changes on the relayr Dashboard.
 
-If you run into troubles, make sure that you have all the Python dependencies installed (`libmraa` and `paho-mqtt`) and virtual Python environment activated (if you are using one.)
+If you run into problems, make sure that you have all the Python dependencies
+installed (`libmraa` and `paho-mqtt`) and that your virtual Python environment
+is activated (if you are using one.)
 
 ### Example 3 (`buzzer.py`)
 
-The `buzzer.py` example shows you how to receive commands from the relayr Cloud and/or the Dell gateway. The command received by Intel Edison will remotely turn on or off a piezo buzzer.
+The `buzzer.py` example shows you how to receive commands from the relayr
+Cloud and/or the Dell gateway. The command received by Intel Edison will
+remotely turn on or off a piezo buzzer.
 
-First prepare the hardware by connecting the [grove buzzer](http://wiki.seeedstudio.com/wiki/Grove_-_Buzzer) to the **Digital pin 5 (D5)**.
+First prepare the hardware by connecting the [grove
+buzzer](http://wiki.seeedstudio.com/wiki/Grove_-_Buzzer) to the **Digital pin
+5 (D5)**.
 
 ![D5 pin](assets/d5-pin.jpg)
 
-Similarly as in the `motion.py` example, copy the credentials of the device created on the relayr Dashboard in the appropriate place of the `buzzer.py`.
+As in the `motion.py` example, paste the device's credentials from the relayr Dashboard into the appropriate place of the `buzzer.py`.
 
 ```python
 # MQTT credentials.
@@ -257,35 +288,49 @@ Run the code example by executing the following Linux shell command:
 python path/to/buzzer.py
 ```
 
-Now the Intel Edison is listening to the messages from the relayr Cloud. You can control the buzzer by pressing **True** or **False** in the **buzzer** widget on the relayr Dashboard and if you did everything right you'll hear a buzzing sound.
+Now the Intel Edison is listening to the messages from the relayr cloud. You
+can control the buzzer by pressing **True** or **False** in the **buzzer**
+widget on the relayr Dashboard. If you set it up correctly, you'll hear a
+buzzing sound.
 
 
 ### Example 4 (`multi_sensor.py`)
 
-The `multi_sensor.py` example uses the following sensors and actuators: PIR motion sensor, luminosity sensor, water sensor and a buzzer.
-
-For the code example to work properly you must first connect all the above mentioned sensors and actuators. Here is a list of pins you should use:
+The `multi_sensor.py` example uses the following sensors and actuators: PIR
+motion sensor, luminosity sensor, water sensor and a buzzer. You mustconnect
+all of these sensors and actuators in order for this example to work
+correctly. Here is a list of pins you should use:
 
 * PIR motion sensor - **D2**
 * Buzzer - **D5**
 * Luminosity sensor - **A0**
 * Water sensor - **D3**
 
-As in previous examples you must add your MQTT credentials in the appropriate place in the `multi_sensor.py` code example and then run the script with executing the following shell command:
+As in the previous examples, you must add your MQTT credentials in the appropriate place in the `multi_sensor.py` code example and then run the script by executing the following shell command:
 
 ```shell
 python path/to/multi_sensor.py
 ```
 
-From then on your device will be publishing sensor data every 0.5 seconds to the relayr Cloud. You can see the incoming data on the relayr Dashboard and similarly as in the `buzzer.py` example, you can trigger a sound by pressing *True* in the *buzzer* widget.
+From then on, your device will publish sensor data every 0.5 seconds to the
+relayr cloud. You can see the incoming data on the relayr Dashboard and
+trigger a sound by pressing *True* in the *buzzer* widget.
 
 ### Starting scripts automatically at system start-up
 
-In most cases you'll wish to start sending data automatically when you power on your Intel Edison board. This section will guide you through configuration of Edison for automatically triggering a Python scrip on boot.
+This section will guide you through the configuration of the Intel Edison to
+trigger a Python script on boot so that you can start sending data as soon as
+you power on your board.
 
-We will use [**`systemd`**](https://www.freedesktop.org/software/systemd/man/systemd.html#), a system and service manager for Linux operating system, while creating a new service responsible for monitoring and sending sensor data. You can find a `mote.service` service configuration file in `edison/python/autostart/` folder.
+We will use
+[`systemd`](https://www.freedesktop.org/software/systemd/man/systemd.html#), a
+system and service manager for Linux operating system, while creating a new
+service responsible for monitoring and sending sensor data. You can find a
+`mote.service` service configuration file in the `edison/python/autostart/`
+directory.
 
-If you look into it you'll see a simple `systemd` unit definition triggering a `mote` shell script.
+If you open this configuration, you'll see a simple `systemd` unit definition
+triggering a `mote` shell script.
 
 ```text
 [Unit]
@@ -309,47 +354,60 @@ source /home/root/edison/ENV/bin/activate
 python /home/root/edison/python/examples/multi_sensor.py
 ```
 
-The first one activates `ENV` python virtual environment in the code repository folder, while the second one runs the `multi_sensor.py` script in the examples folder. Adjust the paths to the virtual environment (or delete the line if you don't use one) and to the Python script you wish to run at system start-up.
+The first one activates a Python virtual environment with the name `ENV` in the code repository folder, while the second one runs the `multi_sensor.py` script in the examples folder. Adjust these paths to the locations of the virtual environment (if you use one) and the Python script you wish to run at system startup.
 
-Next make the `mote` shell script executable by utilizing the following command:
+Next, make the `mote` shell script executable by utilizing the following
+command:
 
 ```shell
 chmod +x edison/python/autostart/mote
 ```
 
-You can test if the shell script has right permissions and works properly by executing:
+You can test if the shell script has the right permissions and works properly
+by executing:
 
 ```shell
 ./edison/python/autostart/mote
 ```
 
-If everything is fine and the Python script is being triggered you can kill the process and move on to copying `mote.service` to the `/lib/systemd/system/` folder:
+If everything is fine and the Python script is being triggered, you can kill
+the process and move on to copying `mote.service` to the
+`/lib/systemd/system/` folder:
 
 ```shell
 cp edison/python/autostart/mote.service /lib/systemd/system/
 ```
 
-Once the service configuration file is in the proper `systemd` folder we have to change its permissions:
+Once the service configuration file is in the proper `systemd` folder, we have
+to change its permissions:
 
 ```shell
 chmod 644 /lib/systemd/system/mote.service
 ```
 
-Now everything is ready and you can reload all the `systemd` configurations
+Now everything is ready and you can reload all the `systemd` configurations...
 
 ```shell
 systemctl daemon-reload
 ```
 
-and enable the service with:
+...and enable the service with:
 
 ```shell
 systemctl enable mote.service
 ```
 
-From now on, when restarting the Edison board the `multi_sensor.py` script should start automatically. You can use `systemctl stop mote.service` to stop the `mote.service` and `systemctl disable mote.service` to remove it from the list of services that start on system start-up. For troubleshooting and/or more advance service configurations consult the [following documentation](https://www.freedesktop.org/software/systemd/man/systemd.html#).
-
+From now on, when restarting the Edison board, the `multi_sensor.py` script
+should start automatically. You can use `systemctl stop mote.service` to stop
+the `mote.service` and `systemctl disable mote.service` to remove it from the
+list of services that start on system startup. For troubleshooting and/or more
+advanced service configurations, [consult the documentation](https://www.freed
+esktop.org/software/systemd/man/systemd.html#).
 
 # Further steps
 
-To explore further and write your own Python code for sensors of your choice look into the code examples and its comments. Furthermore, you can browse the [UPM Python library](http://iotdk.intel.com/docs/master/upm/python/) and its sensor [code example list](https://github.com/intel-iot-devkit/upm/tree/master/examples/python).
+To explore further and write your own Python code for sensors of your choice,
+examine the code examples and their comments. Furthermore, you can browse
+the [UPM Python library](http://iotdk.intel.com/docs/master/upm/python/) and
+its [sensor code example list](https://github.com/intel-iot-
+devkit/upm/tree/master/examples/python).
