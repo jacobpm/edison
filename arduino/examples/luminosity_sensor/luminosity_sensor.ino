@@ -56,7 +56,7 @@ void publish();
 void setup()
 {
   // Initializing pins for the LED and the luminance sensor
-  pinMode(A0, INPUT);
+  pinMode(A1, INPUT);
   pinMode(led, OUTPUT);
 
   // Initializing serial port
@@ -168,11 +168,7 @@ void blink(int interval)
 //------------------------------------------------------------------------------------//
 
 void loop()
-{
-  // When counter reaches the maximum specified in the default model, it's reset
-  if(test_counter == 32767)
-    test_counter = 0;
-    
+{    
   // If we're connected, we can send data...
   if (client.connected())
   { 
@@ -211,7 +207,7 @@ void publish()
   String pubString = "{\"meaning\":\"luminosity\", \"value\":";
   
   // Read and add sensor data to the payload, and close it
-  pubString += analogRead(A0);
+  pubString += analogRead(A1);
   pubString += "}";
   pubString.toCharArray(message_buff, pubString.length() + 1);
   

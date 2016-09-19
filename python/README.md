@@ -31,7 +31,9 @@ Assemble the Arduino Expansion Board found in your Dell Starter Kit
 according to the directions in the
 [Intel Edison guide](https://software.intel.com/en-us/node/628221).
 
-![Intel Edison](assets/intel-edison.jpg)
+After that, plug the Grove Base Shield onto your Arduino Expansion Board as shown below, and you'll be ready to go:
+
+![Edison with the base shield](../assets/edison_base_shield.jpg)
 
 ### Setting up the firmware
 
@@ -181,9 +183,9 @@ ready to make use of MQTT and run the code examples.
 
 ## Code Examples
 
-The code examples below will get you started with using Intel Edison board as a sensor node.
+The code examples below will get you started with using Intel® Edison board as a sensor node.
 
-We will need a representation of our Intel Edison board in the relayr Cloud. Through this entity we will manage sent/received data, MQTT credentials and UI interface of the relayr Dashboard. To create a device on relayr Dashboard follow the [**Devices Guide**](http://docs.relayr.io/getting-started/devices-guide/) and select the **Intel Edison (IoT acceleration starter kit)** as a *Device Model*.
+We will need a representation of our Intel Edison board in the relayr Cloud. Through this entity we will manage sent/received data, MQTT credentials and UI interface of the relayr Dashboard. To create a device on relayr Dashboard follow the [**Devices Guide**](http://docs.relayr.io/getting-started/devices-guide/) and select the **Intel Edison (IoT Acceleration Starter Kit)** as a *Device Model*.
 
 After successfully creating a device on relayr Cloud we are ready to run the first example.
 
@@ -205,7 +207,7 @@ The `motion_sensor.py` example uses a PIR motion sensor to detect movements in i
 
 First prepare the hardware by connecting the *PIR motion sensor* to the **Digital Pin 2 (D2)**.
 
-![D2 pin](assets/d2-pin.jpg)
+![D2 pin](../assets/d2-pin.jpg)
 
 Next modify the `motion_sensor.py` Python script with MQTT credentials of the device you've created at relayr Dashboard. You can use the `nano path/to/motion_sensor.py` command to open the script in the nano editor. Change the following part of the code:
 
@@ -237,7 +239,7 @@ The `buzzer.py` example shows you how to receive commands from the relayr Cloud 
 
 First prepare the hardware by connecting the [grove buzzer](http://wiki.seeedstudio.com/wiki/Grove_-_Buzzer) to the **Digital pin 5 (D5)**.
 
-![D5 pin](assets/d5-pin.jpg)
+![D5 pin](../assets/d5-pin.jpg)
 
 Similarly as in the `motion.py` example, copy the credentials of the device created on the relayr Dashboard in the appropriate place of the `buzzer.py`.
 

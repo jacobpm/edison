@@ -45,6 +45,10 @@ Before continuing, make sure that your board looks like this:
 
 ![](./assets/edison_assembled_board.jpg)
 
+After that, plug the Grove Base Shield onto your Arduino Expansion Board as shown below, and you'll be ready to go:
+
+![Edison with the base shield](./assets/edison_base_shield.jpg)
+
 ### Setting Up the Software
 
 Once our board is ready, it's time to configure the software of the Edison
@@ -73,8 +77,9 @@ find the required parameters to introduce in the code examples.
 
 ### Create a Device In the Developer Dashboard
 
-The very first step in order to try the examples is to create a device on the
-relayr platform. Log in to the [Developer Dashboard](https://dev.relayr.io)
+The very first step in order to try the examples is to create a device on the relayr platform. Note that **if you already did this for the code examples, it's not necessary to do it again!**
+
+If not, log in to the [Developer Dashboard](https://dev.relayr.io)
 and follow the instructions of [this tutorial](http://docs.relayr.io/getting-
 started/devices-guide/#introduction).
 
