@@ -289,8 +289,8 @@ Below the WiFi credentials you will see the MQTT credentials. Now **introduce th
 Now, on the Arduino IDE, click on **Sketch → Upload**, and wait a few seconds until the code is compiled and flashed in the Edison.
 
 Once ready, you may open the serial monitor in **Tools → Serial Monitor**. After the Edison reboots it will execute the sketch, and at some point it will start sending data to the gateway, printing messages according to three different payloads:  
-`Publishing {"meaning":"temperature", "value":XXX}`
-`Publishing {"meaning":"pressure (Pa)", "value":XXX}`
+`Publishing {"meaning":"temperature", "value":XXX}`  
+`Publishing {"meaning":"pressure (Pa)", "value":XXX}`  
 `Publishing {"meaning":"pressure (atm)", "value":XXX}`
 
 Now you should see the data of your sensor in the [devices section of the relayr Dashboard](https://developer.relayr.io/dashboard/devices).
