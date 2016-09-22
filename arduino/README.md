@@ -158,7 +158,7 @@ Now you are ready to run the code examples below!
 
 Aside from this tutorial, in this repository you may also find the following code examples that will help you getting started with the different sensors included in the kit. These codes are heavily commented so they can be the base of more complex applications.
 
-We will need a representation of our Intel® Edison board in the relayr Cloud. Through this entity we will manage sent/received data, MQTT credentials and UI interface of the relayr Dashboard. To create a device on relayr Dashboard follow the [**Devices Guide**](http://docs.relayr.io/getting-started/devices-guide/) and select the **Intel Edison (IoT acceleration starter kit)** as a *Device Model*. The best way to find this model when creating the device is to select the tab "By the Community," and type in the search bar the name of the model: "Intel Edison (IoT Acceleration Starter Kit)."
+We will need a representation of our Intel® Edison board in the relayr Cloud. Through this entity we will manage sent/received data, MQTT credentials and UI interface of the relayr Dashboard. To create a device on relayr Dashboard follow the [**Devices Guide**](http://docs.relayr.io/getting-started/devices-guide/) and select the **Intel Edison (IoT acceleration starter kit)** as a *Device Model*. The best way to find this model when creating the device is to select the tab "By the community," and type in the search bar the name of the model: "Intel Edison (IoT Acceleration Starter Kit)."
 
 ![Selecting the device model](../assets/edison_model_dev_dashboard.png)
 
@@ -258,7 +258,7 @@ Now you should see the data of your sensor in the [devices section of the relayr
 
 ### Example 5 (`barometer_sensor.ino`)
 
-The `barometer_sensor.ino` example uses a the [BMP180](https://ae-bst.resource.bosch.com/media/_tech/media/datasheets/BST-BMP180-DS000-121.pdf) high-accuracy chip integrated in the [Grove IMU 10DOF](http://wiki.seeedstudio.com/wiki/Grove_-_IMU_10DOF), that measures pressure and temperature. This sketch publishes three different values: Temperature (in °C) and pressure (both in Pa and atm).
+The `barometer_sensor.ino` example uses the [BMP180](https://ae-bst.resource.bosch.com/media/_tech/media/datasheets/BST-BMP180-DS000-121.pdf) high-accuracy chip integrated in the [Grove IMU 10DOF](http://wiki.seeedstudio.com/wiki/Grove_-_IMU_10DOF), that measures pressure and temperature. This sketch publishes three different values: Temperature (in °C) and pressure (both in Pa and atm).
 
 First prepare the hardware by connecting the *IMU 10DOF* to one of the four available sockets marked as **I2C**, as shown below.
 
