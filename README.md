@@ -142,7 +142,7 @@ Fill in the following parameters to make the request:
 ## License
 
 Copyright (C) 2016 relayr GmbH, Klemen Lilija <klemen@relayr.io>, Brian Lemke
-<brian@relayr.io>, Jaime González-Arintero <jaime@relayr.io>
+<brian@relayr.io>, Antonio Almeida <antonio@relayr.io>, Jaime González-Arintero <jaime@relayr.io>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
