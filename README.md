@@ -13,7 +13,7 @@ In this repository, you will find tutorials and code examples of how to make
 use of the Edison as a sensor node with the [IoT Acceleration Starter
 Kit](http://www.iot-starterkit.de/), using two languages: Python and Arduino.
 
-![](./assets/edison_intro_pic.jpg)
+![](./assets/edison_intro_pic_dell.jpg)
 
 This document provides resources on how to get started with the Edison,
 including the mechanical assembly. **If your board has already been assembled,
