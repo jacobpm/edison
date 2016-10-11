@@ -92,12 +92,12 @@ Vertex itself.
 
 The following parameters are required in order to associate the device with Vertex:
 
--  `Vertex Id`: UUID of your Vertex gateway. For more information, please [refer to the Vertex documentation]() **[LINK TO BE ADDED!!!]**.
+-  `Vertex Id`: UUID of your Vertex gateway. Once you're done with the section ["Configuration & Onboarding"](https://github.com/relayr/vertex/blob/master/docs/vertex_DSK_readme.md#configuration--onboarding), the gateway should show up as another device. This UUID simply corresponds to the "device ID" of the gateway, that can be displayed as described [here](http://docs.relayr.io/getting-started/devices-guide/#editing--deleting-a-device).
 -  `Authorization Token`: A token that authorizes you to make API calls to your user account and - evices that you manage. [Here is more info about it](http://docs.relayr.io/getting-started/account-creation/#user-id-and-authorization-token) and where to retrieve it.
 -  `Device Id`: UUID of the device that will be associated with Vertex. Provided by the relayr - latform [when adding a device](http://docs.relayr.io/getting-started/devices-guide/).
 -  `User`: MQTT user, in this case the same as the `Device Id`.
 -  `Password`: MQTT password. Provided by the relayr platform [when adding a device](http://docs.relayr.io/getting-started/devices-guide/).
--  `MQTT Server Hostname`: The IP address of your Vertex gateway. This is not specifically required in this step, but it will be added into the code examples. For more information, please [refer to the Vertex documentation]() **[LINK TO BE ADDED!!!]**.
+-  `MQTT Server Hostname`: The IP address of your Vertex gateway. This is not specifically required in this step, but it will be added into the code examples. For more information, please refer to the step #8 of the section ["Configuration & Onboarding"](https://github.com/relayr/vertex/blob/master/docs/vertex_DSK_readme.md#configuration--onboarding) as described on the Vertex documentation.
 
 ### Using cURL
 
