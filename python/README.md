@@ -135,19 +135,21 @@ virtualenv --system-site-packages ENV
 
 The `--system-site-packages` flag is used to inherit all of the packages from the global site-packages directory. Because we need to use the `libmraa` Python bindings, which we previously installed globally, it is necessary to use the `--system-site-packages` flag.
 
-To activate the environment, run:
+To activate the environment, first navigate to `ENV`, inside the current directory:
+
+```
+cd ENV
+```
+
+Once there, simply run:
 
 ```shell
 source bin/activate
 ```
 
-You will notice the `(ENV)` prefix appearing in your command-line
-interface, which indicates that you are in an isolated Python
-environment called `ENV`.
+You will notice the `(ENV)` prefix appearing in your command-line interface, which indicates that you are in an isolated Python environment called `ENV`.
 
-Now we can use `pip` package manager and the Python interpreter just as we
-normally would. However, additional Python packages will be installed **only**
-in the virtual environment.
+Now we can use `pip` package manager and the Python interpreter just as we normally would. However, additional Python packages will be installed **only** in the virtual environment.
 
 To deactivate the virtual environment, run the following shell command:
 
@@ -160,11 +162,8 @@ documentation](https://virtualenv.pypa.io/en/stable/).
 
 ####Paho MQTT
 
-In order to run the Python examples provided in this repository, we need to
-install the [`paho-mqtt`](https://pypi.python.org/pypi/paho-mqtt/1.1) package,
-which provides a MQTT client library and enables sending/receiving of
-messages to/from a MQTT broker. [MQTT](https://en.wikipedia.org/wiki/MQTT) is
-a lightweight messaging protocol built on top of TCP/IP. We chose it for exchanging messages between the gateway and the Edison board because of its simplicity and low overhead.
+In order to run the Python examples provided in this repository, we need to install the [`paho-mqtt`](https://pypi.python.org/pypi/paho-mqtt/1.1) package,
+which provides a MQTT client library and enables sending/receiving of messages to/from a MQTT broker. [MQTT](https://en.wikipedia.org/wiki/MQTT) is a lightweight messaging protocol built on top of TCP/IP. We chose it for exchanging messages between the gateway and the Edison board because of its simplicity and low overhead.
 
 To install `paho-mqtt`  with `pip`, run:
 
@@ -172,15 +171,12 @@ To install `paho-mqtt`  with `pip`, run:
 pip install paho-mqtt
 ```
 
-Once installed, we can use `paho-mqtt` classes by importing the
-module into our script, as we will see later in our code examples.
+Once installed, we can use `paho-mqtt` classes by importing the module into our script, as we will see later in our code examples.
 
-To learn more about the functionalities of the
-`paho-mqtt` Python client, see the
+To learn more about the functionalities of the `paho-mqtt` Python client, see the
 [official documentation](https://pypi.python.org/pypi/paho-mqtt/1.1).
 
-After finishing all the installation and configuration steps, we are now 
-ready to make use of MQTT and run the code examples.
+After finishing all the installation and configuration steps, we are now ready to make use of MQTT and run the code examples.
 
 ## Code Examples
 
@@ -406,13 +402,11 @@ From now on, when restarting the Edison board, the `multi_sensor.py` script
 should start automatically. You can use `systemctl stop mote.service` to stop
 the `mote.service` and `systemctl disable mote.service` to remove it from the
 list of services that start on system startup. For troubleshooting and/or more
-advanced service configurations, [consult the documentation](https://www.freed
-esktop.org/software/systemd/man/systemd.html#).
+advanced service configurations, [consult the documentation](https://www.freedesktop.org/software/systemd/man/systemd.html#).
 
-# Further steps
+# Further Steps
 
 To explore further and write your own Python code for sensors of your choice,
 examine the code examples and their comments. Furthermore, you can browse
 the [UPM Python library](http://iotdk.intel.com/docs/master/upm/python/) and
-its [sensor code example list](https://github.com/intel-iot-
-devkit/upm/tree/master/examples/python).
+its [sensor code example list](https://github.com/intel-iot-devkit/upm/tree/master/examples/python).
