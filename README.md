@@ -2,8 +2,7 @@
 
 ## Introduction
 
-The [Intel® Edison](http://www.intel.com/content/www/us/en/do-it-
-yourself/edison.html) is a single-board computer with a Silvermont dual-core
+The [Intel® Edison](http://www.intel.com/content/www/us/en/do-it-yourself/edison.html) is a single-board computer with a Silvermont dual-core
 Intel Atom CPU, integrating WiFi, Bluetooth 4.0, 1 GB DDR, 4 GB eMMC flash
 memory and USB controllers. The 40 multiplexed GPIO pins, high computing power
 and connectivity capabilities allow rapid industrial IoT and fog computing
@@ -39,8 +38,7 @@ configuration.
 ### Setting Up the Hardware
 
 Assemble the Arduino Expansion Board found in your Dell Starter Kit according
-to the directions in the [Intel® Edison guide](https://software.intel.com/en-
-us/node/628221).
+to the directions in the [Intel® Edison guide](https://software.intel.com/en-us/node/628221).
 
 Before continuing, make sure that your board looks like this:
 
@@ -81,8 +79,7 @@ find the required parameters to introduce in the code examples.
 The very first step in order to try the examples is to create a device on the relayr platform. Note that **if you already did this for the code examples, it's not necessary to do it again!**
 
 If not, log in to the [Developer Dashboard](https://dev.relayr.io)
-and follow the instructions of [this tutorial](http://docs.relayr.io/getting-
-started/devices-guide/#introduction).
+and follow the instructions of [this tutorial](http://docs.relayr.io/getting-started/devices-guide/#introduction).
 
 **NOTE:** You must log in to the account where Vertex has been onboarded.
 All devices that will be associated with Vertex must be on the same account as
