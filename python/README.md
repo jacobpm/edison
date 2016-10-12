@@ -137,7 +137,7 @@ The `--system-site-packages` flag is used to inherit all of the packages from th
 
 To activate the environment, first navigate to `ENV`, inside the current directory:
 
-```
+```shell
 cd ENV
 ```
 
