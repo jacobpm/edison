@@ -185,25 +185,15 @@ Now you are ready to run the code examples below!
 
 In this repository, you will also find the following code examples that will help you get started with the different sensors included in the kit. These codes are heavily commented so that they can serve as the base of more complex applications.
 
-We will need a representation of our Intel® Edison board in the relayr Cloud
-in order to use these examples. Through this entity, we will manage
-sent/received data, MQTT credentials and UI interface of the relayr Dashboard.
-To create a device on relayr Dashboard, follow the [**Devices
-Guide**](http://docs.relayr.io/getting-started/devices-guide/). Select the
-**Intel Edison (IoT acceleration starter kit)** as a *Device Model* on the "By
-the Community" tab when creating the device.
-
 We will need a representation of our Intel® Edison board in the relayr Cloud. Through this entity we will manage sent/received data, MQTT credentials and UI interface of the relayr Dashboard. To create a device on relayr Dashboard follow the [**Devices Guide**](http://docs.relayr.io/getting-started/devices-guide/) and select the **Intel Edison (IoT acceleration starter kit)** as a *Device Model*. The best way to find this model when creating the device is to select the tab "By the community," and type in the search bar the name of the model: "Intel Edison (IoT Acceleration Starter Kit)."
 
 ![Selecting the device model](../assets/edison_model_dev_dashboard.png)
 
-Once you create the device, the relayr Dashboard will generate the MQTT
-credentials for your device, as shown below:
+Once you create the device, the relayr Dashboard will generate the MQTT credentials for your device, as shown below:
 
 ![MQTT credentials in the Developer Dashboard](assets/mqtt_credentials_dev_dashboard.png)
 
-Now **copy this piece of code** and store it for now. These credentials can be
-retrieved later, but in a format that must be converted.
+Now **copy this piece of code** and store it for now. These credentials can be retrieved later, but in a format that must be converted.
 
 ### Example 1 (`blink.ino`)
 
@@ -382,7 +372,8 @@ Now you should see the data of your sensor in the [devices section of the relayr
 
 
 ## To Do
-Add 3rd party licenses of the libraries used for the MQTT communication!
+* Add 3rd party licenses of the libraries used for the MQTT communication
+* Add additional code examples
 
 ## License
 
