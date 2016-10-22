@@ -1,12 +1,10 @@
-# Intel® Edison and the IoT Acceleration Starter Kit
+# Intel® Edison and the Industrial IoT Starter Kit
 
 ## Introduction
 
 The [Intel® Edison](http://www.intel.com/content/www/us/en/do-it-yourself/edison.html) is a single-board computer with a Silvermont dual-core Intel Atom CPU, integrating WiFi, Bluetooth 4.0, 1 GB DDR, 4 GB eMMC flash memory and USB controllers. The 40 multiplexed GPIO pins, high computing power and connectivity capabilities allow rapid industrial IoT and fog computing prototyping.
 
-In this repository, you will find tutorials and code examples of how to make use of the Edison as a sensor node with the [IoT Acceleration Starter Kit](http://www.iot-starterkit.de/), using two languages: Python and Arduino.
-
-![](./assets/edison_intro_pic_dell.jpg)
+In this repository, you will find tutorials and code examples of how to make use of the Edison as a sensor node with the **Industrial IoT Starter Kit**, using two languages: Python and Arduino.
 
 This document provides resources on how to get started with the Edison, including the mechanical assembly. **If your board has already been assembled,
 then please navigate to one of the available tutorials to continue:**
@@ -18,18 +16,20 @@ then please navigate to one of the available tutorials to continue:**
 
 The following hardware is required:
 
--  [Dell Edge Gateway 5100](http://www.dell.com/us/business/p/dell-edge-gateway-5100/pd)
+- 	[Cisco 809 Industrial Integrated Services Router](http://www.cisco.com/c/en/us/products/routers/809-industrial-router/index.html)
 -  [Intel® Edison Arduino Breakout Kit](https://www.arduino.cc/en/ArduinoCertified/IntelEdison#toc3)
+-  Wireless Access Point (that is part of the same local network, so the Edison can connect via WiFi)
+-  Network Switch (to connect the Cisco 809 and the Wireless Access Point)
 
 A computer is required to connect the Edison board for flashing and configuration.
 
-**NOTE:** The additional hardware required for the code examples is specified the Arduino and Python tutorials. All necessary parts are included in the [IoT Acceleration Starter Kit](http://www.iot-starterkit.de/).
+**NOTE:** The additional hardware required for the code examples is specified the Arduino and Python tutorials. Most necessary parts are included in the **Industrial IoT Starter Kit**.
 
 ## Installation & Configuration
 
 ### Setting Up the Hardware
 
-Assemble the Arduino Expansion Board found in your Dell Starter Kit according to the directions in the [Intel® Edison guide](https://software.intel.com/en-us/node/628221).
+Assemble the Arduino Expansion Board found in your Industrial IoT Starter Kit according to the directions in the [Intel® Edison guide](https://software.intel.com/en-us/node/628221).
 
 Before continuing, make sure that your board looks like this:
 
@@ -112,6 +112,11 @@ Fill in the following parameters to make the request:
 }
 
 ```
+
+## TO DO
+
+* Add links to the starter kit page (when available).
+* Include picture in the introduction with the Edison and the 809.
 
 ## License
 
