@@ -4,7 +4,7 @@
 
 This document details all the necessary steps required to make use of the [Intel® Edison](http://www.intel.com/content/www/us/en/do-it-yourself/edison.html) as a sensor node with the **Industrial IoT Starter Kit**.
 
-This document refers **only** to using **Python** on the Edison. See [here](https://github.com/relayr/edison/blob/master/rduino/README_Industrial_IoT_Starter_Kit.md) for using Arduino instead.
+This document refers **only** to using **Python** on the Edison. See [here](https://github.com/relayr/edison/blob/master/arduino/README_Industrial_IoT_Starter_Kit.md) for using Arduino instead.
 
 ## Requirements
 
